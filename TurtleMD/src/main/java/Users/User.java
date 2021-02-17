@@ -35,6 +35,7 @@ public abstract class User {
     public boolean login(){
         //compare username to usernames in database
         //if username doesn't exist, return false
+        //if username isn't linked to the correct login type (patient/staff), return false
         //compare password to password associated with this username
         //if password is wrong, return false
         return true;
