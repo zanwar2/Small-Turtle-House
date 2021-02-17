@@ -1,6 +1,8 @@
 package main.java.FileManager.Appointments;
 
+import main.java.TurtleMD;
 import main.java.Users.Patient;
+import main.java.storage.DatabaseManager;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -8,9 +10,11 @@ import java.util.ArrayList;
 public abstract class AppointmentManager {
 
     private Patient user;
+    private final DatabaseManager dbManager = TurtleMD.getDbManager();
 
     public AppointmentManager(Patient user){
         this.user = user;
+        //db connection
     }
 
     public abstract void formQuestionnaire(File file);
