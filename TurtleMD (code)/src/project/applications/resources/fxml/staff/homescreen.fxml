@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.staff.HomeController">
+   <children>
+      <Button fx:id="nextPatientBtn" mnemonicParsing="false" onMouseReleased="#nextPatientAction" prefHeight="50.0" prefWidth="125.0" text="View Next Patient">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="viewScheduleBtn" layoutX="125.0" mnemonicParsing="false" onMouseReleased="#viewScheduleAction" prefHeight="50.0" prefWidth="125.0" text="View Schedule">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="editProfileBtn" layoutX="250.0" mnemonicParsing="false" onMouseReleased="#editProfileAction" prefHeight="50.0" prefWidth="125.0" text="Edit Profile">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="signOutBtn" layoutX="375.0" mnemonicParsing="false" onMouseReleased="#signOutAction" prefHeight="50.0" prefWidth="125.0" text="Sign Out">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

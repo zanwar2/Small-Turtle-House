@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.general.LoginController">
+   <children>
+      <Button fx:id="loginBtn" layoutX="319.0" layoutY="161.0" mnemonicParsing="false" onMousePressed="#loginAction" prefHeight="53.0" prefWidth="99.0" text="Login">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="userTxt" layoutX="36.0" layoutY="41.0" prefHeight="73.0" prefWidth="200.0" promptText="Enter Username">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="passTxt" layoutX="36.0" layoutY="177.0" prefHeight="73.0" prefWidth="200.0" promptText="Enter Password">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </PasswordField>
+      <Label fx:id="resultLabel" alignment="CENTER" layoutX="40.0" layoutY="275.0" prefHeight="81.0" prefWidth="420.0" textFill="RED">
+         <font>
+            <Font name="Times New Roman" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="usernameLabel" alignment="CENTER" layoutX="40.0" layoutY="372.0" prefHeight="81.0" prefWidth="420.0" textFill="RED">
+         <font>
+            <Font name="Times New Roman" size="32.0" />
+         </font>
+      </Label>
+      <Button fx:id="staffLoginBtn" layoutX="319.0" layoutY="88.0" mnemonicParsing="false" onMousePressed="#staffLoginAction" prefHeight="53.0" prefWidth="99.0" text="Staff Login">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
