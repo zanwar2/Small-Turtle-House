@@ -57,10 +57,9 @@ public class SignupController {
             return;
         }
         UserWrapper wrapper = new PatientWrapper(username, password);
-        ((PatientWrapper) wrapper).saveChanges();
 
         Main.setUserWrapper(wrapper);
-        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/general/loginscreen.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/patient/namescreen.fxml"));
         Main.getPrimaryStage().setTitle("Login Screen");
         Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
     }
