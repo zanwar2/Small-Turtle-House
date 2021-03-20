@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import project.Utils.objects.Wrappers.PatientWrapper;
+import project.Utils.objects.Wrappers.StaffWrapper;
 import project.Utils.objects.Wrappers.UserWrapper;
 import project.Utils.storage.DatabaseManager;
 import project.Utils.storage.Queries;
@@ -35,13 +37,6 @@ public class Main extends Application {
         PreparedStatement stmt = con.prepareStatement(Queries.CREATE_STAFF_TABLE);
         stmt.execute();
 
-        //Adding default staff member TurtleMD with password SmallTurtleHouse
-        stmt = con.prepareStatement(Queries.ADD_NEW_STAFF_LOGIN);
-        //Replacing '?' in Query
-        stmt.setString(1,"TurtleMD");
-        stmt.setString(2,"SmallTurtleHouse");
-        stmt.execute();
-
         stmt = con.prepareStatement(Queries.CREATE_SCHEDULE_TABLE);
         stmt.execute();
 
@@ -51,18 +46,19 @@ public class Main extends Application {
         stmt = con.prepareStatement(Queries.CREATE_PATIENT_TABLE);
         stmt.execute();
 
-        //Adding default patient DefaultUser with password DefaultPass
-        stmt = con.prepareStatement(Queries.ADD_NEW_PATIENT_LOGIN);
-        //Replacing '?' in Query
-        stmt.setString(1,"DefaultUser");
-        stmt.setString(2,"DefaultPass");
-        stmt.execute();
-
-
         stmt.close();
-
+        
         //Setting up the UsernameHandler to avoid needless DB Queries after program starts
         usernameHandler = new UsernameHandler();
+
+        //Adding default staff TurtleMD with password SmallTurtleHouse, name Franklin the Turtle
+        StaffWrapper defaultStaff = new StaffWrapper("TurtleMD", "SmallTurtleHouse", "the Turtle", "Franklin");
+        defaultStaff.saveChanges();
+        //Adding default patient DefaultUser with password DefaultPass, name Default Patient
+        PatientWrapper defaultPatient = new PatientWrapper("DefaultUser", "DefaultPass", "Patient", "Default");
+        defaultPatient.saveChanges();
+
+
 
     }
 
