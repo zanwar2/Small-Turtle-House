@@ -14,6 +14,10 @@ import project.Utils.objects.UsernameHandler;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class Main extends Application {
@@ -28,26 +32,12 @@ public class Main extends Application {
         super.init();
 
         databaseManager = new DatabaseManager("jdbc:mysql://db4free.net:3306/", "turtlemd", "turtlemd", "SmallTurtleHouse");
-//        databaseManager = new DatabaseManager(url, databaseName, username, password);
-//        should look similar to this:
-//        databaseManager = new DatabaseManager("jdbc:mysql://localhost:3306/", "testing_java", "root", "password");
-//        gonna try to set this up remotely, but for now it's local
-        Connection con = databaseManager.getConnection();
-        //Creating table of staff
-        PreparedStatement stmt = con.prepareStatement(Queries.CREATE_STAFF_TABLE);
-        stmt.execute();
-
-        stmt = con.prepareStatement(Queries.CREATE_SCHEDULE_TABLE);
-        stmt.execute();
-
-        stmt = con.prepareStatement(Queries.CREATE_QUESTIONNAIRE_TABLE);
-        stmt.execute();
-        //Creating table of patients
-        stmt = con.prepareStatement(Queries.CREATE_PATIENT_TABLE);
-        stmt.execute();
-
-        stmt.close();
         
+        Connection con = databaseManager.getConnection();
+
+        //Creating all tables
+        createTables(new ArrayList<>(Arrays.asList(Queries.CREATE_STAFF_TABLE,Queries.CREATE_SCHEDULE_TABLE,Queries.CREATE_QUESTIONNAIRE_TABLE,Queries.CREATE_PATIENT_TABLE)), con);
+
         //Setting up the UsernameHandler to avoid needless DB Queries after program starts
         usernameHandler = new UsernameHandler();
 
@@ -102,5 +92,17 @@ public class Main extends Application {
 
     public static Stage getPrimaryStage(){
         return stage;
+    }
+
+    private void createTable(String table, Connection con) throws SQLException {
+        PreparedStatement stmt = con.prepareStatement(table);
+        stmt.execute();
+        stmt.close();
+    }
+
+    private void createTables(List<String> tables, Connection con) throws SQLException {
+        for(String query : tables){
+            createTable(query, con);
+        }
     }
 }
