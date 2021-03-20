@@ -35,10 +35,20 @@ public class SignupController {
             usernameLabel.setText("Username Too Long");
             return;
         }
+        if(username.length() == 0){
+            resultLabel.setText("Signup Failed!");
+            usernameLabel.setText("Username Cannot Be Blank");
+            return;
+        }
         String password = passTxt.getText();
         if(password.length() > 16){
             resultLabel.setText("Signup Failed!");
             usernameLabel.setText("Password Too Long");
+            return;
+        }
+        if(password.length() == 0){
+            resultLabel.setText("Signup Failed!");
+            usernameLabel.setText("Password Cannot Be Blank");
             return;
         }
         if(Main.getUsernameHandler().containsUser(username,false)){
