@@ -30,7 +30,7 @@ public class SignupController {
 
     public void signupAction(MouseEvent event) throws IOException {
         String username = userTxt.getText();
-        if(username.length() > 16){
+        if(username.length() > 64){
             resultLabel.setText("Signup Failed!");
             usernameLabel.setText("Username Too Long");
             return;
