@@ -18,7 +18,7 @@ public class NamesController {
     private TextField firstTxt;
 
     @FXML
-    private PasswordField lastTxt;
+    private TextField lastTxt;
 
     @FXML
     private Label resultLabel;
