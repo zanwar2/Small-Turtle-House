@@ -42,30 +42,12 @@ public class QuestionnaireController {
     {
         int temp = Integer.parseInt(temperature.getText());
         Boolean headCheck, mucusCheck, coughCheck, lymphCheck, soreCheck,nauseaCheck;
-        if(Head.isSelected())
-            headCheck = true;
-        else
-            headCheck = false;
-        if(Mucus.isSelected())
-            mucusCheck = true;
-        else
-            mucusCheck= false;
-        if(Cough.isSelected())
-            coughCheck = true;
-        else
-            coughCheck = false;
-        if(Lymph.isSelected())
-            lymphCheck = true;
-        else
-            lymphCheck = false;
-        if(Sore.isSelected())
-            soreCheck = true;
-        else
-            soreCheck= false;
-        if(Nausea.isSelected())
-            nauseaCheck = true;
-        else
-            nauseaCheck = false;
+        headCheck = Head.isSelected();
+        mucusCheck = Mucus.isSelected();
+        coughCheck = Cough.isSelected();
+        lymphCheck = Lymph.isSelected();
+        soreCheck = Sore.isSelected();
+        nauseaCheck = Nausea.isSelected();
     }
 
     public void submitBtnAction (MouseEvent event) throws IOException
