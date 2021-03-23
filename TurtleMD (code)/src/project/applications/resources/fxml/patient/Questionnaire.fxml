@@ -1,17 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="439.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.patient.QuestionnaireController">
+<AnchorPane prefHeight="473.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.patient.QuestionnaireController">
    <children>
-      <TextField fx:id="temperature" layoutX="35.0" layoutY="52.0" prefHeight="44.0" prefWidth="161.0" promptText="Body Temperature (F)" />
-      <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="268.0" layoutY="14.0" prefHeight="25.0" prefWidth="161.0" text="Questionnaire">
+      <TextField fx:id="temperature" layoutX="31.0" layoutY="56.0" prefHeight="44.0" prefWidth="161.0" promptText="Body Temperature (F)" />
+      <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="145.0" layoutY="14.0" prefHeight="25.0" prefWidth="161.0" text="Questionnaire">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
+      <CheckBox fx:id="Head" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="31.0" layoutY="116.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="371.0" text="Headaches">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="Cough" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="31.0" layoutY="157.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="371.0" text="Coughing">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="Mucus" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="31.0" layoutY="201.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="371.0" text="Mucus">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="Lymph" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="31.0" layoutY="245.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="371.0" text="Swollen Lymphnodes">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="Sore" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="31.0" layoutY="294.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="371.0" text="Soreness">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="Nausea" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="31.0" layoutY="339.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="371.0" text="Nausea">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <Button fx:id="Submit" layoutX="185.0" layoutY="407.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Submit">
+         <font>
+            <Font size="14.0" />
+         </font>
    </children>
 </AnchorPane>
