@@ -40,7 +40,7 @@ public class QuestionnaireController {
 
     public void QuestionnaireChecker()
     {
-        String temp = temperature.getText();
+        int temp = Integer.parseInt(temperature.getText());
         Boolean headCheck, mucusCheck, coughCheck, lymphCheck, soreCheck,nauseaCheck;
         if(Head.isSelected())
             headCheck = true;
