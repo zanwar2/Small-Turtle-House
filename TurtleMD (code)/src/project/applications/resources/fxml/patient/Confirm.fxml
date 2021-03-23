@@ -12,7 +12,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="yes" layoutX="54.0" layoutY="125.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="104.0" text="Yes" />
-      <Button fx:id="no" layoutX="236.0" layoutY="125.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="104.0" text="No" />
+      <Button fx:id="yesBtn" layoutX="54.0" layoutY="125.0" mnemonicParsing="false" onMouseReleased="#yesBtnAction" prefHeight="36.0" prefWidth="104.0" text="Yes" />
+      <Button fx:id="noBtn" layoutX="236.0" layoutY="125.0" mnemonicParsing="false" onMouseReleased="#noBtnAction" prefHeight="36.0" prefWidth="104.0" text="No" />
    </children>
 </AnchorPane>

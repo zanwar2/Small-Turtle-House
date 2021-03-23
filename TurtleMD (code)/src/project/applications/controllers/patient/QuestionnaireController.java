@@ -38,7 +38,37 @@ public class QuestionnaireController {
     @FXML
     private CheckBox Submit;
 
-    public void submitAction (MouseEvent event) throws IOException
+    public void QuestionnaireChecker()
+    {
+        String temp = temperature.getText();
+        Boolean headCheck, mucusCheck, coughCheck, lymphCheck, soreCheck,nauseaCheck;
+        if(Head.isSelected())
+            headCheck = true;
+        else
+            headCheck = false;
+        if(Mucus.isSelected())
+            mucusCheck = true;
+        else
+            mucusCheck= false;
+        if(Cough.isSelected())
+            coughCheck = true;
+        else
+            coughCheck = false;
+        if(Lymph.isSelected())
+            lymphCheck = true;
+        else
+            lymphCheck = false;
+        if(Sore.isSelected())
+            soreCheck = true;
+        else
+            soreCheck= false;
+        if(Nausea.isSelected())
+            nauseaCheck = true;
+        else
+            nauseaCheck = false;
+    }
+
+    public void submitBtnAction (MouseEvent event) throws IOException
     {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/patient/Confirm.fxml"));

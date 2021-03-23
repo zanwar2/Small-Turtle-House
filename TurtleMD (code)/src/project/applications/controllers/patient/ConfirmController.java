@@ -14,12 +14,10 @@ public class ConfirmController
     @FXML
     private Button no;
 
-    public void yesBtnAction(MouseEvent event)
-    {
-
-    }
-
     public void noBtnAction(MouseEvent event) {
         (((Node) event.getSource()).getScene().getWindow()).hide();
+    }
+
+    public void yesBtnAction(MouseEvent mouseEvent) {
     }
 }
