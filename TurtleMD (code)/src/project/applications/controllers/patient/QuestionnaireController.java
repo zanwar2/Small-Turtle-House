@@ -7,6 +7,4 @@ public class QuestionnaireController {
 
     @FXML
     private TextField temperature;
-
-//    @FXML
 }
