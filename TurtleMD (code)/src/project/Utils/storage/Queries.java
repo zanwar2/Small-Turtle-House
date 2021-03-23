@@ -5,18 +5,18 @@ public class Queries {
     public static String CREATE_QUESTIONNAIRE_TABLE = "CREATE TABLE IF NOT EXISTS pre_app_quest (" +
             "patient_id INTEGER PRIMARY KEY AUTO_INCREMENT," +
             "rounded_temp INTEGER," +
-            "headaches VARCHAR(3)," +
-            "coughing VARCHAR(3)," +
-            "mucus VARCHAR(3)," +
-            "swollen_lymphnodes VARCHAR(3)," +
-            "soreness VARCHAR(3)," +
-            "nausea VARCHAR(3)," +
-            "common_cold VARCHAR(3)," +
-            "flu VARCHAR(3)," +
-            "bronchitis VARCHAR(3) );";
+            "headaches BOOLEAN," +
+            "coughing BOOLEAN," +
+            "mucus BOOLEAN," +
+            "swollen_lymphnodes BOOLEAN," +
+            "soreness BOOLEAN," +
+            "nausea BOOLEAN," +
+            "common_cold BOOLEAN," +
+            "flu BOOLEAN," +
+            "bronchitis BOOLEAN );";
 
     public static String CREATE_PATIENT_TABLE = "CREATE TABLE IF NOT EXISTS user_data (" +
-            "username VARCHAR(16) PRIMARY KEY," +
+            "username VARCHAR(64) PRIMARY KEY," +
             "password VARCHAR(16)," +
             "last_name VARCHAR(32)," +
             "first_name VARCHAR(32)," +
@@ -25,7 +25,7 @@ public class Queries {
             "FOREIGN KEY(patient_id) REFERENCES pre_app_quest(patient_id) ON DELETE SET NULL );";
 
     public static String CREATE_STAFF_TABLE = "CREATE TABLE IF NOT EXISTS staff_data (" +
-            "username VARCHAR(16) PRIMARY KEY," +
+            "username VARCHAR(64) PRIMARY KEY," +
             "password VARCHAR(16)," +
             "last_name VARCHAR(32)," +
             "first_name VARCHAR(32) );";
