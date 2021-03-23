@@ -10,6 +10,9 @@ public class SignOutController {
 
     public void confirmBtnAction(MouseEvent event) {
         ((PatientWrapper) Main.getUserWrapper()).saveChanges();
+
+
+
         Main.getPrimaryStage().hide();
         ((Node) event.getSource()).getScene().getWindow().hide();
     }

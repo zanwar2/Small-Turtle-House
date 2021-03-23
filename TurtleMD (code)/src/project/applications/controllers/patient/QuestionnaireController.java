@@ -16,7 +16,7 @@ public class QuestionnaireController {
 
     @FXML
     private TextField temperature;
-
+  
     @FXML
     private CheckBox Head;
 
@@ -59,5 +59,4 @@ public class QuestionnaireController {
         stage.setResizable(false);
         stage.show();
     }
-
 }
