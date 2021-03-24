@@ -17,7 +17,10 @@ public class HomeController {
     public void viewScheduleAction(MouseEvent event) {
     }
 
-    public void editProfileAction(MouseEvent event) {
+    public void editProfileAction(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/staff/editprofile.fxml"));
+        Main.getPrimaryStage().setTitle("Edit Profile Screen");
+        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
     }
 
     public void signOutAction(MouseEvent event) throws IOException {

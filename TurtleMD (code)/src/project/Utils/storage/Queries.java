@@ -63,5 +63,9 @@ public class Queries {
     public static String GET_PATIENT_USERNAMES = "SELECT username FROM user_data;";
 
     public static String GET_PATIENT = "SELECT * FROM user_data WHERE username = ?;";
+
+    public static String GET_LAST_PATIENT_ID = "SELECT * FROM pre_app_quest ORDER BY patient_id DESC LIMIT 1;";
+
+    public static String SAVE_QUESTIONNAIRE = "REPLACE INTO pre_app_quest (patient_id, rounded_temp, headaches, coughing, mucus, swollen_lymphnodes, soreness, nausea, common_cold, flu, bronchitis) VALUES(?,?,?,?,?,?,?,?,?,?,?);";
 }
 

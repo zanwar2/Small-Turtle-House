@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import project.Utils.objects.QuestionnaireHandler;
 import project.Utils.objects.Wrappers.PatientWrapper;
 import project.Utils.objects.Wrappers.StaffWrapper;
 import project.Utils.objects.Wrappers.UserWrapper;
@@ -24,8 +25,10 @@ public class Main extends Application {
 
     private static DatabaseManager databaseManager;
     private static UsernameHandler usernameHandler;
-    private static UserWrapper userWrapper = null;
     private static Stage stage;
+
+    private static QuestionnaireHandler questionnaireHandler = null;
+    private static UserWrapper userWrapper = null;
 
     @Override
     public void init() throws Exception {
@@ -88,6 +91,14 @@ public class Main extends Application {
 
     public static void setUserWrapper(UserWrapper userWrapper) {
         Main.userWrapper = userWrapper;
+    }
+
+    public static QuestionnaireHandler getQuestionnaireHandler() {
+        return questionnaireHandler;
+    }
+
+    public static void setQuestionnaireHandler(QuestionnaireHandler questionnaireHandler) {
+        Main.questionnaireHandler = questionnaireHandler;
     }
 
     public static Stage getPrimaryStage(){

@@ -49,4 +49,21 @@ public class PatientWrapper extends UserWrapper {
         }
         Main.getUsernameHandler().reloadPatientUsers();
     }
+
+    public Integer getPatient_id() {
+        return patient_id;
+    }
+
+    public void setPatient_id(Integer patient_id) {
+        this.patient_id = patient_id;
+    }
+
+    public Timestamp getNext_appointment() {
+        return next_appointment;
+    }
+
+    public void setNext_appointment(Timestamp next_appointment) {
+        this.next_appointment = next_appointment;
+    }
+
 }

@@ -77,13 +77,13 @@ public class LoginController {
         }
 
         //Case: Password Does Not Match
-        if(!passTxt.getText().equals(wrapper.getPassword())){
+        if(!wrapper.matchPass(passTxt.getText())){
             resultLabel.setText("Login Failed!");
             usernameLabel.setText("Incorrect Password");
             return;
         }
 
-        //Set StaffWrapper from Main class (might change to a general UserWrapper later, this is just for testing
+        //Set UserWrapper from Main class
         Main.setUserWrapper(wrapper);
         //Set color to lime because success! Default color red
         resultLabel.setStyle("-fx-text-fill: LIME");
@@ -138,13 +138,13 @@ public class LoginController {
         }
 
         //Case: Password Does Not Match
-        if(!passTxt.getText().equals(wrapper.getPassword())){
+        if(!wrapper.matchPass(passTxt.getText())){
             resultLabel.setText("Login Failed!");
             usernameLabel.setText("Incorrect Password");
             return;
         }
 
-        //Set StaffWrapper from Main class (might change to a general UserWrapper later, this is just for testing
+        //Set UserWrapper from Main class
         Main.setUserWrapper(wrapper);
         //Set color to lime because success! Default color red
         resultLabel.setStyle("-fx-text-fill: LIME");

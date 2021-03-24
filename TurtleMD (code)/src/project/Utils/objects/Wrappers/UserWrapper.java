@@ -22,6 +22,10 @@ public class UserWrapper {
         this.first_name = first_name;
     }
 
+    public boolean matchPass(String password){
+        return this.password.equals(password);
+    }
+
     public String getUsername() {
         return username;
     }
