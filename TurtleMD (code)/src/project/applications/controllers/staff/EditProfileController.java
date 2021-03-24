@@ -1,12 +1,17 @@
 package project.applications.controllers.staff;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import project.Main;
 import project.Utils.objects.Wrappers.StaffWrapper;
+
+import java.io.IOException;
 
 public class EditProfileController {
 
@@ -29,7 +34,7 @@ public class EditProfileController {
     private Label reasonLabel;
 
 
-    public void submitAction(MouseEvent mouseEvent) {
+    public void submitAction(MouseEvent mouseEvent) throws IOException {
 
         StaffWrapper wrapper = (StaffWrapper) Main.getUserWrapper();
         String username = userTxt.getText();
@@ -61,17 +66,21 @@ public class EditProfileController {
         if(username.length() != 0){
             wrapper.setUsername(username);
         }
-        if(password.length() == 0){
+        if(password.length() != 0){
             wrapper.setPassword(password);
         }
-        if(first.length() == 0){
+        if(first.length() != 0){
             wrapper.setFirst_name(first);
         }
-        if(last.length() == 0){
+        if(last.length() != 0){
             wrapper.setLast_name(last);
         }
 
         wrapper.saveChanges();
+
+        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/staff/homescreen.fxml"));
+        Main.getPrimaryStage().setTitle("Home Screen");
+        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
 
     }
 
