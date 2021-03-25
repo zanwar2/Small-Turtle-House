@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="project.applications.controllers.staff.ViewScheduleController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.staff.ViewScheduleController">
+   <children>
+      <Label layoutX="148.0" layoutY="14.0" text="Appointment Schedule">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutY="70.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <TableView prefHeight="330.0" prefWidth="600.0">
+              <columns>
+                <TableColumn prefWidth="211.0" text="Patient" />
+                <TableColumn prefWidth="195.0" text="Appointment Time" />
+                  <TableColumn prefWidth="193.0" text="Completion" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
