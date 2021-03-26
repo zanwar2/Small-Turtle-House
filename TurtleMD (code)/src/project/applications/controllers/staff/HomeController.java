@@ -14,7 +14,10 @@ public class HomeController {
     public void nextPatientAction(MouseEvent event) {
     }
 
-    public void viewScheduleAction(MouseEvent event) {
+    public void viewScheduleAction(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/staff/viewschedule.fxml"));
+        Main.getPrimaryStage().setTitle("View Schedule");
+        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(400), root.prefHeight(600)));
     }
 
     public void editProfileAction(MouseEvent event) throws IOException {
