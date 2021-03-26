@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.staff.HomeController">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.staff.HomeController">
    <children>
       <Button fx:id="nextPatientBtn" mnemonicParsing="false" onMouseReleased="#nextPatientAction" prefHeight="50.0" prefWidth="125.0" text="View Next Patient">
          <font>
@@ -30,5 +26,6 @@
             <Font name="Times New Roman" size="14.0" />
          </font>
       </Button>
+      <Button layoutX="41.0" layoutY="329.0" mnemonicParsing="false" onMouseReleased="#createStaffAction" prefHeight="50.0" prefWidth="168.0" text="Add New Staff Member" />
    </children>
 </AnchorPane>
