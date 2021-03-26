@@ -15,10 +15,7 @@ import project.Utils.storage.Queries;
 import project.Utils.objects.Wrappers.StaffWrapper;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 
 public class LoginController {
@@ -127,9 +124,11 @@ public class LoginController {
             String password = rS.getString(2);
             String last_name = rS.getString(3);
             String first_name = rS.getString(4);
+            Timestamp date = rS.getTimestamp(5);
+            Integer patient_id = rS.getInt(6);
 
             //Create StaffWrapper from information given to avoid continually calling on the database
-            wrapper = new PatientWrapper(username, password, last_name, first_name);
+            wrapper = new PatientWrapper(username, password, last_name, first_name, date, patient_id);
 
             //Always close your statements
             stmt.close();
