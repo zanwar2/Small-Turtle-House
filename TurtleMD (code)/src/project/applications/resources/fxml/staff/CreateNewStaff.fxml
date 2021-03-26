@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.staff.CreateController">
+   <children>
+      <Text layoutX="201.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Staff:" wrappingWidth="197.13671875">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <TextField fx:id="fnameTxt" alignment="CENTER_RIGHT" layoutX="50.0" layoutY="68.0" promptText="First Name" />
+      <TextField fx:id="lnameTxt" alignment="CENTER_RIGHT" layoutX="50.0" layoutY="108.0" promptText="Last Name" />
+      <TextField fx:id="userTxt" alignment="CENTER_RIGHT" layoutX="50.0" layoutY="148.0" promptText="Username" />
+      <PasswordField fx:id="passTxt" alignment="CENTER_RIGHT" layoutX="50.0" layoutY="188.0" promptText="Password" />
+      <Button fx:id="createButton" layoutX="50.0" layoutY="235.0" mnemonicParsing="false" onMouseReleased="#createAction" text="Create" />
+      <Button fx:id="backButton" layoutX="149.0" layoutY="235.0" mnemonicParsing="false" onMouseReleased="#backAction" prefHeight="25.0" prefWidth="51.0" text="Back" />
+      <Text fx:id="fwarning" fill="RED" layoutX="213.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="148.9999920129776">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="lwarning" fill="RED" layoutX="213.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="148.9999920129776">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="uwarning" fill="RED" layoutX="213.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="148.9999920129776">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="pwarning" fill="RED" layoutX="213.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="148.9999920129776">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="succTxt" fill="#14a825" layoutX="50.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="148.9999920129776">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
