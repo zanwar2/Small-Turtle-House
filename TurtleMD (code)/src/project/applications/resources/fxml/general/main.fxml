@@ -9,14 +9,14 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.general.MainController">
    <children>
-      <Button fx:id="signupBtn" alignment="CENTER" layoutX="155.0" layoutY="253.0" mnemonicParsing="false" onMouseReleased="#signupBtnAction" prefHeight="0.0" prefWidth="118.0" text="Sign Up">
+      <Button fx:id="signupBtn" alignment="CENTER" layoutX="155.0" layoutY="250.0" mnemonicParsing="false" onMouseReleased="#signupBtnAction" prefHeight="26.0" prefWidth="118.0" text="Sign Up">
          <font>
-            <Font name="Times New Roman" size="18.0" />
+            <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="loginBtn" alignment="CENTER" layoutX="323.0" layoutY="253.0" mnemonicParsing="false" onMouseReleased="#loginBtnAction" prefHeight="32.0" prefWidth="118.0" text="Log In">
+      <Button fx:id="loginBtn" alignment="CENTER" layoutX="326.0" layoutY="250.0" mnemonicParsing="false" onMouseReleased="#loginBtnAction" prefHeight="32.0" prefWidth="118.0" text="Log In">
          <font>
-            <Font name="Times New Roman" size="18.0" />
+            <Font size="16.0" />
          </font>
       </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1ac9a3" height="172.0" layoutX="214.0" layoutY="42.0" stroke="TRANSPARENT" strokeType="INSIDE" width="172.0" />

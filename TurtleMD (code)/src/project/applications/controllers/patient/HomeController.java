@@ -7,9 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import project.Main;
 import project.Utils.objects.Wrappers.PatientWrapper;
+import project.Utils.objects.Wrappers.StaffWrapper;
 
 
 import java.io.IOException;
@@ -28,10 +30,25 @@ public class HomeController {
     @FXML
     private Button viewScheduleBtn;
 
+    @FXML
+    private Text currentUserTxt;
+
+    //Accessing the currently logged in username to display as confirmation that the user is on the correct account -matthew
+    private PatientWrapper wrapper = (PatientWrapper) Main.getUserWrapper();
+    private String loggedInUser = wrapper.getUsername();
+
+    //function for setting the text as the proper username when the class instance is created -matthew
+    public void showUser()
+    {
+        //sets text -matthew
+        currentUserTxt.setText(loggedInUser);
+    }
+
     public void editProfileAction(MouseEvent event)
     {
 
     }
+
 
     public void signOutAction(MouseEvent event) throws IOException {
         Stage stage = new Stage();
