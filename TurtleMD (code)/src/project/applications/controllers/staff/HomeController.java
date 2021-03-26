@@ -1,15 +1,32 @@
 package project.applications.controllers.staff;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import project.Main;
+import project.Utils.objects.Wrappers.StaffWrapper;
 
 import java.io.IOException;
 
 public class HomeController {
+
+    @FXML
+    private Text currentUserTxt;
+
+    //Accessing the currently logged in username to display as confirmation that the user is on the correct account -matthew
+    private StaffWrapper wrapper = (StaffWrapper) Main.getUserWrapper();
+    private String loggedInUser = wrapper.getUsername();
+
+    //function for setting the text as the proper username when the class instance is created -matthew
+    public void showUser()
+    {
+        //sets text -matthew
+        currentUserTxt.setText(loggedInUser);
+    }
 
     public void nextPatientAction(MouseEvent event) {
     }

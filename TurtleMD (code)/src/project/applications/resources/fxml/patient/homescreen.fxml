@@ -1,30 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.patient.HomeController">
-    <children>
-        <Button fx:id="NextAppointmentBtn" mnemonicParsing="false" onMouseReleased="#NextAppointmentBtnAction" prefHeight="50.0" prefWidth="125.0" text="Next Appointment">
-            <font>
-                <Font name="Times New Roman" size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="viewScheduleBtn" layoutX="125.0" mnemonicParsing="false" onMouseReleased="#viewScheduleBtnAction" prefHeight="50.0" prefWidth="125.0" text="View Schedule">
-            <font>
-                <Font name="Times New Roman" size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="editProfileBtn" layoutX="250.0" mnemonicParsing="false" onMouseReleased="#editProfileAction" prefHeight="50.0" prefWidth="125.0" text="Edit Profile">
-            <font>
-                <Font name="Times New Roman" size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="signOutBtn" layoutX="375.0" mnemonicParsing="false" onMouseReleased="#signOutAction" prefHeight="50.0" prefWidth="125.0" text="Sign Out">
-            <font>
-                <Font name="Times New Roman" size="14.0" />
-            </font>
-        </Button>
-    </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.patient.HomeController">
+   <children>
+      <Button fx:id="nextPatientBtn" layoutX="300.0" layoutY="119.0" mnemonicParsing="false" onMouseReleased="#NextAppointmentBtnAction" prefHeight="30.0" prefWidth="168.0" text="View Next Appointment">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="viewScheduleBtn" layoutX="300.0" layoutY="202.0" mnemonicParsing="false" onMouseReleased="#viewScheduleBtnAction" prefHeight="30.0" prefWidth="168.0" text="View Schedule">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1ac9a3" height="400.0" stroke="TRANSPARENT" strokeType="INSIDE" width="168.0" />
+      <Button fx:id="signOutBtn" layoutX="37.0" layoutY="343.0" mnemonicParsing="false" onMouseReleased="#signOutAction" prefHeight="18.0" prefWidth="96.0" text="Sign Out">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="129.0" fitWidth="138.0" layoutX="20.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/tmd_icon.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="editProfileBtn" layoutX="35.0" layoutY="301.0" mnemonicParsing="false" onMouseReleased="#editProfileAction" prefHeight="30.0" prefWidth="100.0" text="Edit Profile">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Text layoutX="20.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as" textAlignment="CENTER" wrappingWidth="129.0000021457672" />
+      <Text fx:id="currentUserTxt" layoutX="20.0" layoutY="222.0" onMouseMoved="#showUser" strokeType="OUTSIDE" strokeWidth="0.0" text="..." textAlignment="CENTER" wrappingWidth="129.0000021457672">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+   </children>
 </AnchorPane>
