@@ -1,23 +1,36 @@
 package project.applications.controllers.patient;
 
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import project.Main;
+import project.Utils.objects.Wrappers.PatientWrapper;
+
 
 import java.io.IOException;
 
 public class HomeController {
 
-    public void nextPatientAction(MouseEvent event) {
-    }
+    @FXML
+    private Button NextAppointmentBtn;
 
-    public void viewScheduleAction(MouseEvent event) {
-    }
+    @FXML
+    private Button editProfileBtn;
 
-    public void editProfileAction(MouseEvent event) {
+    @FXML
+    private Button signOutBtn;
+
+    @FXML
+    private Button viewScheduleBtn;
+
+    public void editProfileAction(MouseEvent event)
+    {
+
     }
 
     public void signOutAction(MouseEvent event) throws IOException {
@@ -29,4 +42,35 @@ public class HomeController {
         stage.show();
     }
 
+    public void NextAppointmentBtnAction(MouseEvent mouseEvent) throws IOException
+    {
+        PatientWrapper user = (PatientWrapper) Main.getUserWrapper();
+        if(user.getNext_appointment() == null)
+        {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/patient/NextAppointment.fxml"));
+            Parent root = loader.load();
+            NextAppointmentController appointmentController = loader.getController();
+            appointmentController.getCancelBtn().setVisible(false);
+            appointmentController.setInfo("There is no appointment Scheduled");
+            appointmentController.setOptionText("Schedule New Appointment");
+            Main.getPrimaryStage().setTitle("Next Appointment Screen");
+            Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+        }
+        else
+        {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/patient/NextAppointment.fxml"));
+            Parent root = loader.load();
+            NextAppointmentController appointmentController = loader.getController();
+            appointmentController.getCancelBtn().setVisible(true);
+            appointmentController.setInfo(user.getNext_appointment().toString());
+            appointmentController.setOptionText("Reschedule Appointment");
+            Main.getPrimaryStage().setTitle("Next Appointment Screen");
+            Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+        }
+    }
+
+    public void viewScheduleBtnAction(MouseEvent mouseEvent)
+    {
+
+    }
 }
