@@ -1,8 +1,5 @@
 package project.applications.controllers.staff;
 
-//IMPORTANT: THE DATE PICKER CLASS IS A PLACEHOLDER
-
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -11,12 +8,15 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.scene.control.DatePicker;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
 import javafx.util.StringConverter;
+
+import javax.xml.soap.Text;
 
 public class ViewScheduleController extends DatePicker{
 
-    private ObjectProperty<LocalTime> timeValue = new SimpleObjectProperty<>();
+    /*private ObjectProperty<LocalTime> timeValue = new SimpleObjectProperty<>();
     private ObjectProperty<ZonedDateTime> dateTimeValue;
 
     public ViewScheduleController(){
@@ -70,6 +70,38 @@ public class ViewScheduleController extends DatePicker{
             });
         }
         return dateTimeValue;
+    }*/
+
+    @FXML
+    private TableView scheduleviewer;
+
+        @FXML
+        private TableColumn patient;
+
+        @FXML
+        private TableColumn appointmenttime;
+
+        @FXML
+        private TableColumn completion;
+
+    @FXML
+    private DatePicker datecompletionconfirmation;
+
+    @FXML
+    private Text completedappointment;
+
+    @FXML
+    private Button confirm;
+
+
+    private boolean incompleteAppointments(){
+        //if appointment is incomplete or unfulfilled, return true.
+        // Else print complete in the completion column AND print "date completed" below DatePicker
+        return false;
+    }
+
+    public void setScheduleviewer(){
+
     }
 
 }

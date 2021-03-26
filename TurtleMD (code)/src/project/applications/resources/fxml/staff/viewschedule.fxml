@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.staff.ViewScheduleController">
    <children>
@@ -18,16 +19,17 @@
       </Label>
       <AnchorPane layoutY="70.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
          <children>
-            <TableView prefHeight="330.0" prefWidth="274.0">
+            <TableView fx:id="scheduleviewer" prefHeight="330.0" prefWidth="274.0">
               <columns>
-                <TableColumn prefWidth="65.0" text="Patient" />
-                <TableColumn prefWidth="129.0" text="Appointment Time" />
-                  <TableColumn prefWidth="79.0" text="Completion" />
+                <TableColumn fx:id="patient" prefWidth="65.0" text="Patient" />
+                <TableColumn fx:id="appointmenttime" prefWidth="129.0" text="Appointment Time" />
+                  <TableColumn fx:id="completion" prefWidth="79.0" text="Completion" />
               </columns>
             </TableView>
-            <DatePicker layoutX="341.0" layoutY="39.0" />
-            <Label layoutX="341.0" layoutY="22.0" text="Available Dates" />
-            <Button layoutX="341.0" layoutY="93.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="Confirm" />
+            <DatePicker fx:id="datecompletionconfirmation" layoutX="341.0" layoutY="39.0" />
+            <Text fx:id="completedappointment" fill="#f50000" layoutX="341.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="173.99999052286148" />
+            <Label layoutX="341.0" layoutY="22.0" text="Incomplete appointment dates" />
+            <Button fx:id="confirm" layoutX="341.0" layoutY="93.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="Confirm" />
          </children>
       </AnchorPane>
       <Separator layoutY="66.0" prefHeight="9.0" prefWidth="600.0" />
