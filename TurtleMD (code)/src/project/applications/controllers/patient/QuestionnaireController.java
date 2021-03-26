@@ -3,6 +3,7 @@ package project.applications.controllers.patient;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import project.Main;
@@ -36,6 +37,9 @@ public class QuestionnaireController {
     @FXML
     private CheckBox Nausea;
 
+    @FXML
+    private Label fail;
+
     private boolean QuestionnaireChecker()
     {
         int temp;
@@ -60,7 +64,7 @@ public class QuestionnaireController {
     public void submitBtnAction (MouseEvent event) throws IOException
     {
         if(!QuestionnaireChecker()){
-            //display a failed msg on screen
+            fail.setText("Please input a whole number for temperature");
             return;
         }
         Stage stage = new Stage();
