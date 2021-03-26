@@ -1,5 +1,6 @@
 package project.applications.controllers.general;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,6 +10,9 @@ import project.Main;
 import java.io.IOException;
 
 public class MainController {
+
+    //@FXML
+
 
     public void signupBtnAction(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/patient/signupscreen.fxml"));
