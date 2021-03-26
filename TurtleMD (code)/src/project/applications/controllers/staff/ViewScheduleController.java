@@ -109,5 +109,11 @@ public class ViewScheduleController extends DatePicker{
 
     }
 
+    public void backAction(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/staff/homescreen.fxml"));
+        Main.getPrimaryStage().setTitle("Staff Home");
+        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+    }
+
 }
 

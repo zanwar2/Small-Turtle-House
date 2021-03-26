@@ -30,6 +30,7 @@
             <Text fx:id="completedappointment" fill="#f50000" layoutX="341.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="173.99999052286148" />
             <Label layoutX="341.0" layoutY="22.0" text="Incomplete appointment dates" />
             <Button fx:id="confirm" layoutX="341.0" layoutY="93.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" text="Confirm" />
+            <Button fx:id="back" layoutX="345.0" layoutY="237.0" mnemonicParsing="false" onMouseReleased="#backAction" prefHeight="53.0" prefWidth="156.0" text="Back" />
          </children>
       </AnchorPane>
       <Separator layoutY="66.0" prefHeight="9.0" prefWidth="600.0" />
