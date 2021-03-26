@@ -32,4 +32,10 @@ public class HomeController {
         stage.show();
     }
 
+    public void createStaffAction(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/staff/CreateNewStaff.fxml"));
+        Main.getPrimaryStage().setTitle("Create new staff");
+        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+    }
+
 }
