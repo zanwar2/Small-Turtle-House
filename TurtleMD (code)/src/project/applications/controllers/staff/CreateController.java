@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -47,31 +46,14 @@ public class CreateController {
 
     //This method checks the user fields to make sure the data is entered properly and then creates a new staff member and adds it to the database.
     public void createAction(MouseEvent event) throws IOException {
+
+        //this chunk of code gets the strings from the text boxes in the program and assigns them to variables in the method
         String username = userTxt.getText();
         String password = passTxt.getText();
         String firstName = fnameTxt.getText();
         String lastName = lnameTxt.getText();
 
-        if (username.length() > 64) {
-            uwarning.setText("Username Too Long");
-            return;
-        }
-        if (username.length() == 0) {
-            uwarning.setText("Username Cannot Be Blank");
-            return;
-        }
-        if (password.length() > 16) {
-            pwarning.setText("Password Too Long");
-            return;
-        }
-        if (password.length() == 0) {
-            pwarning.setText("Password Cannot Be Blank");
-            return;
-        }
-        if (Main.getUsernameHandler().containsUser(username, false)) {
-            uwarning.setText("Username Already Exists");
-            return;
-        }
+        //making the checks to see if user entered values are valid, then alerting them if they aren't
         if (firstName.length() > 32) {
             fwarning.setText("First Name Too Long");
             return;
@@ -88,20 +70,47 @@ public class CreateController {
             lwarning.setText("Last Name Cannot Be Blank");
             return;
         }
+        if (username.length() > 64) {
+            uwarning.setText("Username Too Long");
+            return;
+        }
+        if (username.length() == 0) {
+            uwarning.setText("Username Cannot Be Blank");
+            return;
+        }
+        if (Main.getUsernameHandler().containsUser(username, false)) {
+            uwarning.setText("Username Already Exists");
+            return;
+        }
+        if (password.length() > 16) {
+            pwarning.setText("Password Too Long");
+            return;
+        }
+        if (password.length() == 0) {
+            pwarning.setText("Password Cannot Be Blank");
+            return;
+        }
+
+        //creates a wrapper to enter the information into the database
         UserWrapper wrapper = new StaffWrapper(username, password);
 
+        //setting first and last name
         wrapper.setFirst_name(firstName);
         wrapper.setLast_name(lastName);
 
+        //alerting user
         succTxt.setText("Staff user successfully created");
 
+        //saving changes to database
         ((StaffWrapper) wrapper).saveChanges();
 
     }
 
+    //this controls the back button, changes javafx scene to the home screen for staff
     public void backAction(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/staff/homescreen.fxml"));
         Main.getPrimaryStage().setTitle("Staff Home");
+        //sets scene with default dimensions that will be overwritten by homescreen.fxml anyway
         Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
     }
 
