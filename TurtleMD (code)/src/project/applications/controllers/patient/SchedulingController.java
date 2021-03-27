@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import project.Main;
 import project.Utils.Constants;
+import project.Utils.objects.ScheduleHandler;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -68,7 +69,10 @@ public class SchedulingController
         Parent root = loader.load();
         TimeSelectionController timeController = loader.getController();
         timeController.setDate(appointment);
-        //add functionality to check if times for the next days are taken
+
+        ScheduleHandler scheduler = new ScheduleHandler(appointment);
+        timeController.disableButtons(scheduler);
+
         Main.getPrimaryStage().setTitle("Time Selection");
         Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
     }
