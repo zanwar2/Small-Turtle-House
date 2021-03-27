@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import project.Main;
 import java.io.IOException;
+import java.sql.Timestamp;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -15,6 +16,9 @@ import javafx.scene.control.TextField;
 import project.Utils.objects.QuestionnaireHandler;
 
 public class QuestionnaireController {
+
+    private QuestionnaireHandler questionnaire;
+    private Timestamp date;
 
     @FXML
     private TextField temperature;
@@ -57,7 +61,7 @@ public class QuestionnaireController {
         soreCheck = Sore.isSelected();
         nauseaCheck = Nausea.isSelected();
 
-        Main.setQuestionnaireHandler(new  QuestionnaireHandler(temp, headCheck, coughCheck, mucusCheck, lymphCheck, soreCheck, nauseaCheck));
+        questionnaire = new QuestionnaireHandler(temp, headCheck, coughCheck, mucusCheck, lymphCheck, soreCheck, nauseaCheck);
         return true;
     }
 
@@ -68,10 +72,16 @@ public class QuestionnaireController {
             return;
         }
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/patient/Confirm.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/patient/Confirm.fxml"));
+        ((ConfirmController) loader.getController()).setData(questionnaire, date);
+        Parent root = loader.load();
         stage.setTitle("Confirm Screen");
         stage.setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
         stage.setResizable(false);
         stage.show();
+    }
+
+    public void setDate(Timestamp date) {
+        this.date = date;
     }
 }
