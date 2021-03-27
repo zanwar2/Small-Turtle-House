@@ -6,17 +6,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import project.Main;
-import project.Utils.objects.Wrappers.PatientWrapper;
+import project.Utils.Constants;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.time.Instant;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class SchedulingController
 {
-
-    @FXML
-    private Button Back;
+    private List<Button> button;
+    private List<Date> times;
 
     @FXML
     private Button Mon;
@@ -39,64 +41,36 @@ public class SchedulingController
     @FXML
     private Button Sun;
 
-    private List<Button> button;
-
-    private List<Date> times;
-
-    private Date date;
-
-
     public void setDates() {
-        button = new ArrayList<>(Arrays.asList(new Button[]{Mon,Tue,Wed,Thur,Fri,Sat,Sun}));
+        button = new ArrayList<>(Arrays.asList(Mon,Tue,Wed,Thur,Fri,Sat,Sun));
         times = new ArrayList<>();
-        int i =0;
-        Date today = Date.from(Instant.now());
+        Date date = new Date(Instant.now().toEpochMilli()
+                //subtract the additional milliseconds past a day by subtracting the modulus
+                - (Instant.now().toEpochMilli() % Constants.DAY)
+                //the time calculated above for some reason equates to 6 hours earlier
+                //than intended, likely due to timezones. as a result, add 6 hours
+                + (6 * Constants.HOUR));
         for(Button btn : button) {
-            today = new Date(today.getTime()+86400000);
-            times.add(today);
-            btn.setText(today.toString());
-            i++;
+            date = new Date(date.getTime() + Constants.DAY);
+            times.add(date);
+            btn.setText(date.toString());
         }
     }
 
-    public void BackAction(MouseEvent mouseEvent) throws IOException {
-        PatientWrapper user = (PatientWrapper) Main.getUserWrapper();
-        if(user.getNext_appointment() == null)
-        {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/patient/NextAppointment.fxml"));
-            Parent root = loader.load();
-            NextAppointmentController appointmentController = loader.getController();
-            appointmentController.getCancelBtn().setVisible(false);
-            appointmentController.setInfo("There is no appointment Scheduled");
-            appointmentController.setOptionText("Schedule New Appointment");
-            Main.getPrimaryStage().setTitle("Next Appointment Screen");
-            Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
-        }
-        else
-        {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/patient/NextAppointment.fxml"));
-            Parent root = loader.load();
-            NextAppointmentController appointmentController = loader.getController();
-            appointmentController.getCancelBtn().setVisible(true);
-            appointmentController.setInfo(user.getNext_appointment().toString());
-            appointmentController.setOptionText("Reschedule Appointment");
-            Main.getPrimaryStage().setTitle("Next Appointment Screen");
-            Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
-        }
+    public void BackAction(MouseEvent event) throws IOException {
+        Main.setNextAppointmentScreen();
     }
 
-    public void DateAction(MouseEvent mouseEvent) throws IOException {
-        Button find = (Button) mouseEvent.getSource();
-        System.out.println(find.getId() + " qq");
-        Date date = times.get(button.indexOf(find));
-        System.out.println(date);
+    public void DateAction(MouseEvent event) throws IOException {
+        Button find = (Button) event.getSource();
+        Date appointment = times.get(button.indexOf(find));
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/patient/TimeSelection.fxml"));
         Parent root = loader.load();
         TimeSelectionController timeController = loader.getController();
-        timeController.setDate(date.getTime());
+        timeController.setDate(appointment);
+        //add functionality to check if times for the next days are taken
         Main.getPrimaryStage().setTitle("Time Selection");
         Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
-
     }
 
 }

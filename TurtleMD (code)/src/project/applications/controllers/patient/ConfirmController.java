@@ -19,16 +19,15 @@ public class ConfirmController {
     }
 
     public void yesBtnAction(MouseEvent event) throws SQLException {
-        Main.setQuestionnaireHandler(questionnaire);
-        questionnaire.saveChanges();
         PatientWrapper wrapper =  (PatientWrapper) Main.getUserWrapper();
         wrapper.setNext_appointment(next_appointment);
+        questionnaire.saveChanges();
         wrapper.saveChanges();
-
+        (((Node) event.getSource()).getScene().getWindow()).hide();
     }
 
-    public void setData(QuestionnaireHandler questionnaire, Timestamp date) {
+    public void setData(QuestionnaireHandler questionnaire, Timestamp next_appointment) {
         this.questionnaire = questionnaire;
-        this.next_appointment = date;
+        this.next_appointment = next_appointment;
     }
 }

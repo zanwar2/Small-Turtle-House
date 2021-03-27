@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import project.Main;
 
@@ -11,7 +13,8 @@ import java.io.IOException;
 
 public class MainController {
 
-    //@FXML
+    @FXML
+    ImageView image;
 
 
     public void signupBtnAction(MouseEvent event) throws IOException {
@@ -24,5 +27,9 @@ public class MainController {
         Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/general/loginscreen.fxml"));
         Main.getPrimaryStage().setTitle("Login Screen");
         Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+    }
+
+    public void setImage(Image image) {
+        this.image.setImage(image);
     }
 }

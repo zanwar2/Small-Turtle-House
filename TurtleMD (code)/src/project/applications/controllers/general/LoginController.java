@@ -1,9 +1,6 @@
 package project.applications.controllers.general;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -88,10 +85,7 @@ public class LoginController {
         resultLabel.setText("Login Succeeded to: ");
         usernameLabel.setText(username);
 
-
-        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/staff/homescreen.fxml"));
-        Main.getPrimaryStage().setTitle("Home Screen");
-        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+        Main.setHomeScreen(true);
     }
 
 
@@ -151,9 +145,6 @@ public class LoginController {
         resultLabel.setText("Login Succeeded to: ");
         usernameLabel.setText(username);
 
-
-        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/patient/homescreen.fxml"));
-        Main.getPrimaryStage().setTitle("Home Screen");
-        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+        Main.setHomeScreen(false);
     }
 }
