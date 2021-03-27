@@ -14,11 +14,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import project.Utils.objects.QuestionnaireHandler;
+import project.Utils.objects.ScheduleHandler;
 
 public class QuestionnaireController {
 
     private QuestionnaireHandler questionnaire;
-    private Timestamp date;
+    private Timestamp appointment;
+    private ScheduleHandler scheduler;
 
     @FXML
     private TextField temperature;
@@ -73,15 +75,16 @@ public class QuestionnaireController {
         }
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/patient/Confirm.fxml"));
-        ((ConfirmController) loader.getController()).setData(questionnaire, date);
         Parent root = loader.load();
+        ((ConfirmController) loader.getController()).setData(questionnaire, appointment, scheduler);
         stage.setTitle("Confirm Screen");
         stage.setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
         stage.setResizable(false);
         stage.show();
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setData(Timestamp appointment, ScheduleHandler scheduler) {
+        this.appointment = appointment;
+        this.scheduler = scheduler;
     }
 }

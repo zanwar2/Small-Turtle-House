@@ -1,12 +1,5 @@
 package project.Utils.objects.Wrappers;
 
-import project.Main;
-import project.Utils.storage.Queries;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
 public class UserWrapper {
 
 

@@ -4,15 +4,21 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import project.Utils.objects.QuestionnaireHandler;
 import project.Utils.objects.Wrappers.PatientWrapper;
 import project.Utils.objects.Wrappers.StaffWrapper;
 import project.Utils.objects.Wrappers.UserWrapper;
 import project.Utils.storage.DatabaseManager;
 import project.Utils.storage.Queries;
 import project.Utils.objects.UsernameHandler;
+import project.applications.controllers.general.MainController;
+import project.applications.controllers.patient.NextAppointmentController;
+import project.applications.controllers.patient.PatientHomeController;
+import project.applications.controllers.staff.StaffHomeController;
 
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -27,7 +33,6 @@ public class Main extends Application {
     private static UsernameHandler usernameHandler;
     private static Stage stage;
 
-    private static QuestionnaireHandler questionnaireHandler = null;
     private static UserWrapper userWrapper = null;
 
     @Override
@@ -60,7 +65,10 @@ public class Main extends Application {
 
         Main.stage = primaryStage;
         //Read .fxml file and show it
-        Parent root = FXMLLoader.load(getClass().getResource("applications/resources/fxml/general/main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("applications/resources/fxml/general/main.fxml"));
+        Parent root = loader.load();
+        URL imageUrl = getClass().getResource("applications/resources/images/tmd_icon.png");
+        ((MainController) loader.getController()).setImage(new Image(imageUrl.toExternalForm()));
         stage.setTitle("Main Screen");
         stage.setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
         stage.setResizable(false);
@@ -93,14 +101,6 @@ public class Main extends Application {
         Main.userWrapper = userWrapper;
     }
 
-    public static QuestionnaireHandler getQuestionnaireHandler() {
-        return questionnaireHandler;
-    }
-
-    public static void setQuestionnaireHandler(QuestionnaireHandler questionnaireHandler) {
-        Main.questionnaireHandler = questionnaireHandler;
-    }
-
     public static Stage getPrimaryStage(){
         return stage;
     }
@@ -115,5 +115,37 @@ public class Main extends Application {
         for(String query : tables){
             createTable(query, con);
         }
+    }
+
+    public static void setHomeScreen(boolean staff) throws IOException {
+        String path = staff ? "applications/resources/fxml/staff/homescreen.fxml" : "applications/resources/fxml/patient/homescreen.fxml";
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource(path));
+        Parent root = loader.load();
+        URL imageUrl = Main.class.getResource("applications/resources/images/tmd_icon.png");
+        if(staff)
+            ((StaffHomeController) loader.getController()).setImage(new Image(imageUrl.toExternalForm()));
+        else
+            ((PatientHomeController) loader.getController()).setImage(new Image(imageUrl.toExternalForm()));
+        stage.setTitle("Home Screen");
+        stage.setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+    }
+
+    public static void setNextAppointmentScreen() throws IOException {
+        PatientWrapper user = (PatientWrapper) Main.getUserWrapper();
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/patient/NextAppointment.fxml"));
+        Parent root = loader.load();
+        NextAppointmentController appointmentController = loader.getController();
+        if(user.getNext_appointment() == null) {
+            appointmentController.getCancelBtn().setVisible(false);
+            appointmentController.setInfo("There is no appointment Scheduled");
+            appointmentController.setOptionText("Schedule New Appointment");
+        }
+        else {
+            appointmentController.getCancelBtn().setVisible(true);
+            appointmentController.setInfo(user.getNext_appointment().toString());
+            appointmentController.setOptionText("Reschedule Appointment");
+        }
+        Main.getPrimaryStage().setTitle("Next Appointment Screen");
+        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
     }
 }

@@ -1,9 +1,6 @@
 package project.applications.controllers.staff;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -108,10 +105,8 @@ public class CreateController {
 
     //this controls the back button, changes javafx scene to the home screen for staff
     public void backAction(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/staff/homescreen.fxml"));
-        Main.getPrimaryStage().setTitle("Staff Home");
-        //sets scene with default dimensions that will be overwritten by homescreen.fxml anyway
-        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+        Main.setHomeScreen(true);
     }
+
 
 }

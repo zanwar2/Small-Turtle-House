@@ -20,10 +20,7 @@
          </font>
       </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1ac9a3" height="172.0" layoutX="214.0" layoutY="42.0" stroke="TRANSPARENT" strokeType="INSIDE" width="172.0" />
-      <ImageView fitHeight="170.0" fitWidth="170.0" layoutX="215.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../images/tmd_icon.png" />
-         </image>
+      <ImageView fx:id="image" fitHeight="170.0" fitWidth="170.0" layoutX="215.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
    </children>
 </AnchorPane>

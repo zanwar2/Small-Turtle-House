@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -12,10 +14,13 @@ import project.Utils.objects.Wrappers.StaffWrapper;
 
 import java.io.IOException;
 
-public class HomeController {
+public class StaffHomeController {
 
     @FXML
     private Text currentUserTxt;
+
+    @FXML
+    private ImageView image;
 
     //Accessing the currently logged in username to display as confirmation that the user is on the correct account -matthew
     private StaffWrapper wrapper = (StaffWrapper) Main.getUserWrapper();
@@ -56,6 +61,10 @@ public class HomeController {
         Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/staff/CreateNewStaff.fxml"));
         Main.getPrimaryStage().setTitle("Create new staff");
         Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+    }
+
+    public void setImage(Image image) {
+        this.image.setImage(image);
     }
 
 }

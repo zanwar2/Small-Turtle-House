@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="450.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.patient.TimeSelectionController">
+   <children>
+      <Button fx:id="nineTenBtn" layoutX="25.0" layoutY="75.0" mnemonicParsing="false" onMouseReleased="#timeSelectionAction" prefHeight="50.0" prefWidth="325.0" text="9 AM - 10 AM">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="tenElevenBtn" layoutX="375.0" layoutY="75.0" mnemonicParsing="false" onMouseReleased="#timeSelectionAction" prefHeight="50.0" prefWidth="325.0" text="10 AM - 11 AM">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="elevenNoonBtn" layoutX="25.0" layoutY="150.0" mnemonicParsing="false" onMouseReleased="#timeSelectionAction" prefHeight="50.0" prefWidth="325.0" text="11 AM - Noon">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="oneTwoBtn" layoutX="25.0" layoutY="225.0" mnemonicParsing="false" onMouseReleased="#timeSelectionAction" prefHeight="50.0" prefWidth="325.0" text="1 PM - 2 PM">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="noonOneBtn" layoutX="375.0" layoutY="150.0" mnemonicParsing="false" onMouseReleased="#timeSelectionAction" prefHeight="50.0" prefWidth="325.0" text="Noon - 1 PM">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="twoThreeBtn" layoutX="375.0" layoutY="225.0" mnemonicParsing="false" onMouseReleased="#timeSelectionAction" prefHeight="50.0" prefWidth="325.0" text="2 PM - 3 PM">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="threeFourBtn" layoutX="25.0" layoutY="300.0" mnemonicParsing="false" onMouseReleased="#timeSelectionAction" prefHeight="50.0" prefWidth="325.0" text="3 PM - 4 PM">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="fourFiveBtn" layoutX="375.0" layoutY="300.0" mnemonicParsing="false" onMouseReleased="#timeSelectionAction" prefHeight="50.0" prefWidth="325.0" text="4 PM - 5 PM">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="fiveSixBtn" layoutX="25.0" layoutY="372.0" mnemonicParsing="false" onMouseReleased="#timeSelectionAction" prefHeight="50.0" prefWidth="325.0" text="5 PM - 6 PM">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+      <Text layoutX="-3.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Appointment Time" textAlignment="CENTER" wrappingWidth="731.13671875">
+         <font>
+            <Font name="Times New Roman Bold" size="50.0" />
+         </font>
+      </Text>
+      <Button fx:id="cancelBtn" layoutX="375.0" layoutY="372.0" mnemonicParsing="false" onMouseReleased="#cancelAction" prefHeight="50.0" prefWidth="325.0" text="Cancel">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
