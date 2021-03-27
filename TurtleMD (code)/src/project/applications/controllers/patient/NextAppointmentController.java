@@ -57,6 +57,11 @@ public class NextAppointmentController
 
 
     public void optionBtnAction(MouseEvent mouseEvent) throws IOException {
-        //send to scheduling page
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/patient/Scheduling.fxml"));
+        Parent root = loader.load();
+        SchedulingController schedulingController = loader.getController();
+        schedulingController.setDates();
+        Main.getPrimaryStage().setTitle("Scheduling Screen");
+        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
     }
 }
