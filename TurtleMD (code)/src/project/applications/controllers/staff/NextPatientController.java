@@ -83,7 +83,13 @@ public class NextPatientController {
         pageSetup();
     }
 
-    public void patientInfoAction(MouseEvent mouseEvent) {
-
+    public void patientInfoAction(MouseEvent mouseEvent) throws IOException, SQLException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/staff/patientinfoscreen.fxml"));
+        Parent root = loader.load();
+        PatientInfoScreenController patientInfoScreenController = loader.getController();
+        patientInfoScreenController.setPatient(nextPatient);
+        patientInfoScreenController.pageSetup();
+        Main.getPrimaryStage().setTitle("Patient Info");
+        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(400), root.prefHeight(600)));
     }
 }
