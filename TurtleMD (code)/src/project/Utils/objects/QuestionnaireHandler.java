@@ -43,7 +43,8 @@ public class QuestionnaireHandler {
                 PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.GET_LAST_PATIENT_ID);
                 ResultSet rs = stmt.executeQuery();
                 rs.next();
-                wrapper.setPatient_id(rs.getInt(1));
+                this.patient_id = rs.getInt(1) + 1;
+                wrapper.setPatient_id(this.patient_id);
                 stmt.close();
             } catch (SQLException e) {
                 e.printStackTrace();

@@ -99,8 +99,9 @@ public class viewTimeController {
         PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.GET_PATIENT_BY_TIME);
         stmt.setTimestamp(1,appointment);
         ResultSet rS = stmt.executeQuery();
-        rS.next();
-        PatientWrapper patient = new PatientWrapper(rS.getString(1), rS.getString(2), rS.getString(3), rS.getString(4), rS.getTimestamp(5), rS.getInt(6));
+        PatientWrapper patient = null;
+        if(rS.next())
+            patient = new PatientWrapper(rS.getString(1), rS.getString(2), rS.getString(3), rS.getString(4), rS.getTimestamp(5), rS.getInt(6));
         stmt.close();
 
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/staff/patientinfoscreen.fxml"));
