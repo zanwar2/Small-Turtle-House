@@ -10,9 +10,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import project.Main;
+import project.Utils.objects.Wrappers.PatientWrapper;
 import project.Utils.objects.Wrappers.StaffWrapper;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class StaffHomeController {
 
@@ -33,7 +35,24 @@ public class StaffHomeController {
         currentUserTxt.setText(loggedInUser);
     }
 
-    public void nextPatientAction(MouseEvent event) {
+    //Loads the nextpatient page and transfers the first patient into the NextPatientController class - Tyler
+    public void nextPatientAction(MouseEvent event) throws IOException, SQLException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/staff/nextpatient.fxml"));
+        Parent root = loader.load();
+        NextPatientController patientController = loader.getController();
+        PatientWrapper patient = wrapper.getNextPatient();
+        patientController.setPatient(patient);
+        if(patient.getNext_appointment() == null)
+        {
+            patientController.getCancelBtn().setVisible(false);
+            patientController.setInfo("There is no appointment Scheduled");
+        }
+        else
+        {
+            patientController.pageSetup();
+        }
+        Main.getPrimaryStage().setTitle("Next Patient Screen");
+        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(400), root.prefHeight(600)));
     }
 
     public void viewScheduleAction(MouseEvent event) throws IOException {

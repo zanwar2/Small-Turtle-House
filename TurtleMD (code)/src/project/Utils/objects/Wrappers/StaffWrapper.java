@@ -5,6 +5,7 @@ import project.Utils.storage.Queries;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class StaffWrapper extends UserWrapper {
@@ -37,6 +38,14 @@ public class StaffWrapper extends UserWrapper {
         Main.getUsernameHandler().reloadStaffUsers();
     }
 
+    public PatientWrapper getNextPatient() throws SQLException {
+        PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.GET_NEXT_APPOINTMENT);
+        ResultSet rS = stmt.executeQuery();
+        rS.next();
+        PatientWrapper patient = new PatientWrapper(rS.getString(1), rS.getString(2), rS.getString(3), rS.getString(4), rS.getTimestamp(5), rS.getInt(6));
+        stmt.close();
+        return patient;
+    }
 }
 
 
