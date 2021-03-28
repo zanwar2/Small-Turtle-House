@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import project.Utils.Constants;
 import project.Utils.objects.Wrappers.PatientWrapper;
 import project.Utils.objects.Wrappers.StaffWrapper;
 import project.Utils.objects.Wrappers.UserWrapper;
@@ -25,6 +26,8 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -57,6 +60,8 @@ public class Main extends Application {
         defaultStaff.saveChanges();
         //Adding default patient DefaultUser with password DefaultPass, name Default Patient
         PatientWrapper defaultPatient = new PatientWrapper("DefaultUser", "DefaultPass", "Patient", "Default");
+        defaultPatient.setNext_appointment(new Timestamp(Instant.now().getEpochSecond() - (Instant.now().getEpochSecond() % Constants.DAY) + (Constants.HOUR * 39)));
+        defaultPatient.setPatient_id(1);
         defaultPatient.saveChanges();
 
 
