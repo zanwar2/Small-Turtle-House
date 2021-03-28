@@ -78,5 +78,7 @@ public class Queries {
 
     public static String GET_PATIENT_BY_TIME = "SELECT * FROM user_data WHERE next_appointment = ?;";
 
+    public static String REMOVE_FROM_MASTER_SCHEDULE = "DELETE FROM master_schedule WHERE day = ?;";
+
 }
 
