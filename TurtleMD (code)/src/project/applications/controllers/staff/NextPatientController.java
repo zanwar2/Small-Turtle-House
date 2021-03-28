@@ -62,9 +62,7 @@ public class NextPatientController {
 
     //Returns back to the staff home screen - Tyler
     public void backBtnAction(MouseEvent mouseEvent) throws IOException {
-        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/staff/homescreen.fxml"));
-        Main.getPrimaryStage().setTitle("Home Screen");
-        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+        Main.setHomeScreen(true);
     }
 
     //Makes the current patient's appointment null, does some visibility stuff to show that you have cancelled
