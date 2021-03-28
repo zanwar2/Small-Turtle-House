@@ -22,11 +22,11 @@ public class QuestionnaireHandler {
     private boolean flu;
     private boolean bronchitis;
 
-    public QuestionnaireHandler(int temp, boolean headache, boolean mucus, boolean cough, boolean lymph, boolean sore, boolean nausea){
+    public QuestionnaireHandler(int temp, boolean headache, boolean cough, boolean mucus, boolean lymph, boolean sore, boolean nausea){
         this.temp = temp;
         this.headache = headache;
-        this.mucus = mucus;
         this.cough = cough;
+        this.mucus = mucus;
         this.lymph = lymph;
         this.sore = sore;
         this.nausea = nausea;

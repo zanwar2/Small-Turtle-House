@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import project.Utils.Constants;
+import project.Utils.objects.QuestionnaireHandler;
 import project.Utils.objects.Wrappers.PatientWrapper;
 import project.Utils.objects.Wrappers.StaffWrapper;
 import project.Utils.objects.Wrappers.UserWrapper;
@@ -58,9 +59,12 @@ public class Main extends Application {
         //Adding default staff TurtleMD with password SmallTurtleHouse, name Franklin the Turtle
         StaffWrapper defaultStaff = new StaffWrapper("TurtleMD", "SmallTurtleHouse", "the Turtle", "Franklin");
         defaultStaff.saveChanges();
+        //Adding default Questionnaire to avoid patient erroring
+        QuestionnaireHandler questionnaire = new QuestionnaireHandler(1, 100, true, true, false, false, true, false, false, false, false);
+        questionnaire.saveChanges();
         //Adding default patient DefaultUser with password DefaultPass, name Default Patient
         PatientWrapper defaultPatient = new PatientWrapper("DefaultUser", "DefaultPass", "Patient", "Default");
-        defaultPatient.setNext_appointment(new Timestamp(Instant.now().getEpochSecond() - (Instant.now().getEpochSecond() % Constants.DAY) + (Constants.HOUR * 39)));
+        defaultPatient.setNext_appointment(new Timestamp(Instant.now().toEpochMilli() - ((Instant.now().toEpochMilli()) % Constants.DAY) + (Constants.HOUR * 39)));
         defaultPatient.setPatient_id(1);
         defaultPatient.saveChanges();
 
