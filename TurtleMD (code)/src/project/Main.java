@@ -161,12 +161,12 @@ public class Main extends Application {
         if(user.getNext_appointment() == null) {
             appointmentController.getCancelBtn().setVisible(false);
             appointmentController.setInfo("There is no appointment Scheduled");
-            appointmentController.setOptionText("Schedule New Appointment");
+            appointmentController.setOptionText("Schedule");
         }
         else {
             appointmentController.getCancelBtn().setVisible(true);
             appointmentController.setInfo(user.getNext_appointment().toString());
-            appointmentController.setOptionText("Reschedule Appointment");
+            appointmentController.setOptionText("Reschedule");
         }
         Main.getPrimaryStage().setTitle("Next Appointment Screen");
         Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));

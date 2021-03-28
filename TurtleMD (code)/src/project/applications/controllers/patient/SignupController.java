@@ -64,4 +64,10 @@ public class SignupController {
         Main.getPrimaryStage().setTitle("Login Screen");
         Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
     }
+
+    public void backBtnAction(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/general/main.fxml"));
+        Main.getPrimaryStage().setTitle("Main Screen");
+        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+    }
 }

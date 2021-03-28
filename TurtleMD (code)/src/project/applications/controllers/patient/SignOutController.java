@@ -6,15 +6,14 @@ import javafx.scene.input.MouseEvent;
 import project.Main;
 import project.Utils.objects.Wrappers.PatientWrapper;
 
+import java.io.IOException;
+
 public class SignOutController {
 
-    public void confirmBtnAction(MouseEvent event) {
+    public void confirmBtnAction(MouseEvent event) throws IOException {
         ((PatientWrapper) Main.getUserWrapper()).saveChanges();
-
-
-
-        Main.getPrimaryStage().hide();
-        ((Node) event.getSource()).getScene().getWindow().hide();
+        Main.setMainScreen();
+        (((Node) event.getSource()).getScene().getWindow()).hide();
     }
 
     public void backBtnAction(MouseEvent event) {
