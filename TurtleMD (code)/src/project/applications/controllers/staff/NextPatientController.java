@@ -11,8 +11,11 @@ import javafx.scene.text.Text;
 import project.Main;
 import project.Utils.objects.Wrappers.PatientWrapper;
 import project.Utils.objects.Wrappers.StaffWrapper;
+import project.Utils.storage.Queries;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class NextPatientController {
@@ -67,7 +70,11 @@ public class NextPatientController {
 
     //Makes the current patient's appointment null, does some visibility stuff to show that you have cancelled
     //and makes sure you know that you have cancelled that patient's appointment - Tyler
-    public void cancelBtnAction(MouseEvent mouseEvent) {
+    public void cancelBtnAction(MouseEvent mouseEvent) throws SQLException {
+        PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.REMOVE_FROM_MASTER_SCHEDULE);
+        stmt.setDate(1, new Date(nextPatient.getNext_appointment().getTime()));
+        stmt.execute();
+        stmt.close();
         nextPatient.setNext_appointment(null);
         nextPatient.saveChanges();
         infoFieldNPC.setText("Appointment Cancelled");

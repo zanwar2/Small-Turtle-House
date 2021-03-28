@@ -22,11 +22,11 @@ public class QuestionnaireHandler {
     private boolean flu;
     private boolean bronchitis;
 
-    public QuestionnaireHandler(int temp, boolean headache, boolean mucus, boolean cough, boolean lymph, boolean sore, boolean nausea){
+    public QuestionnaireHandler(int temp, boolean headache, boolean cough, boolean mucus, boolean lymph, boolean sore, boolean nausea){
         this.temp = temp;
         this.headache = headache;
-        this.mucus = mucus;
         this.cough = cough;
+        this.mucus = mucus;
         this.lymph = lymph;
         this.sore = sore;
         this.nausea = nausea;
@@ -43,7 +43,8 @@ public class QuestionnaireHandler {
                 PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.GET_LAST_PATIENT_ID);
                 ResultSet rs = stmt.executeQuery();
                 rs.next();
-                wrapper.setPatient_id(rs.getInt(1));
+                this.patient_id = rs.getInt(1) + 1;
+                wrapper.setPatient_id(this.patient_id);
                 stmt.close();
             } catch (SQLException e) {
                 e.printStackTrace();

@@ -147,4 +147,8 @@ public class LoginController {
 
         Main.setHomeScreen(false);
     }
+
+    public void backBtnAction(MouseEvent mouseEvent) throws IOException {
+        Main.setMainScreen();
+    }
 }

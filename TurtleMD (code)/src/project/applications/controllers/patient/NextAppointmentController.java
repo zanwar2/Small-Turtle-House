@@ -9,8 +9,12 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import project.Main;
 import project.Utils.objects.Wrappers.PatientWrapper;
+import project.Utils.storage.Queries;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class NextAppointmentController
 {
@@ -41,12 +45,16 @@ public class NextAppointmentController
         return cancelBtn;
     }
 
-    public void cancelBtnAction(MouseEvent mouseEvent)
-    {
+    public void cancelBtnAction(MouseEvent mouseEvent) throws SQLException {
         PatientWrapper user = (PatientWrapper) Main.getUserWrapper();
+        PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.REMOVE_FROM_MASTER_SCHEDULE);
+        stmt.setDate(1, new Date(user.getNext_appointment().getTime()));
+        stmt.execute();
+        stmt.close();
         user.setNext_appointment(null);
         user.saveChanges();
         setInfo("Appointment has been cancelled!");
+
     }
 
     public void backBtnAction(MouseEvent mouseEvent) throws IOException {

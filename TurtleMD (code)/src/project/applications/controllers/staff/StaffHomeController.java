@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 import project.Main;
 import project.Utils.objects.Wrappers.PatientWrapper;
 import project.Utils.objects.Wrappers.StaffWrapper;
+import project.Utils.objects.Wrappers.UserWrapper;
+import project.applications.controllers.patient.SchedulingController;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -24,13 +26,8 @@ public class StaffHomeController {
     @FXML
     private ImageView image;
 
-    //Accessing the currently logged in username to display as confirmation that the user is on the correct account -matthew
-    private StaffWrapper wrapper = (StaffWrapper) Main.getUserWrapper();
-    private String loggedInUser = wrapper.getUsername();
-
     //function for setting the text as the proper username when the class instance is created -matthew
-    public void showUser()
-    {
+    public void showUser(String loggedInUser) {
         //sets text -matthew
         currentUserTxt.setText(loggedInUser);
     }
@@ -41,9 +38,7 @@ public class StaffHomeController {
     }
 
     public void viewScheduleAction(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/staff/viewschedule.fxml"));
-        Main.getPrimaryStage().setTitle("View Schedule");
-        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(400), root.prefHeight(600)));
+        Main.setViewDateScreen();
     }
 
     public void editProfileAction(MouseEvent event) throws IOException {

@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="486.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.patient.NextAppointmentController">
    <children>
-      <Label fx:id="infoField" layoutX="32.0" layoutY="21.0" prefHeight="140.0" prefWidth="655.0">
+      <Label fx:id="infoField" alignment="CENTER" layoutX="27.0" layoutY="25.0" prefHeight="140.0" prefWidth="655.0">
          <font>
             <Font size="32.0" />
          </font>

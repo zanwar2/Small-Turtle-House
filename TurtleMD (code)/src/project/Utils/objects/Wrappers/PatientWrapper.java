@@ -43,6 +43,7 @@ public class PatientWrapper extends UserWrapper {
                 stmt = con.prepareStatement(Queries.ADD_PATIENT_ID);
                 stmt.setInt(1,this.patient_id);
                 stmt.setString(2,this.getUsername());
+                stmt.execute();
             }
             stmt.close();
         } catch (SQLException e){
@@ -69,7 +70,7 @@ public class PatientWrapper extends UserWrapper {
 
     public QuestionnaireHandler getQuestionnaire() throws SQLException {
         PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.GET_QUESTIONNAIRE);
-        stmt.setInt(1, this.patient_id); //or whatever this method is
+        stmt.setInt(1, this.patient_id);
         ResultSet rS = stmt.executeQuery();
         rS.next();
         QuestionnaireHandler questionnaire = new QuestionnaireHandler(rS.getInt(1), rS.getInt(2),

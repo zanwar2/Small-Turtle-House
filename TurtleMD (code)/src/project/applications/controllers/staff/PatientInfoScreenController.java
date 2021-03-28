@@ -55,7 +55,7 @@ public class PatientInfoScreenController {
     }
 
     public void backBtnAction(MouseEvent event) throws IOException, SQLException {
-        Main.nextPatientScreen();
+        Main.setHomeScreen(true);
     }
 
     public void pageSetup() throws SQLException {

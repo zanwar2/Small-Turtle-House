@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.general.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.applications.controllers.general.LoginController">
    <children>
-      <Button fx:id="loginBtn" layoutX="319.0" layoutY="161.0" mnemonicParsing="false" onMousePressed="#loginAction" prefHeight="53.0" prefWidth="99.0" text="Login">
+      <Button fx:id="loginBtn" layoutX="319.0" layoutY="124.0" mnemonicParsing="false" onMousePressed="#loginAction" prefHeight="53.0" prefWidth="99.0" text="Login">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
@@ -32,7 +34,12 @@
             <Font name="Times New Roman" size="32.0" />
          </font>
       </Label>
-      <Button fx:id="staffLoginBtn" layoutX="319.0" layoutY="88.0" mnemonicParsing="false" onMousePressed="#staffLoginAction" prefHeight="53.0" prefWidth="99.0" text="Staff Login">
+      <Button fx:id="staffLoginBtn" layoutX="319.0" layoutY="51.0" mnemonicParsing="false" onMousePressed="#staffLoginAction" prefHeight="53.0" prefWidth="99.0" text="Staff Login">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="backBtn" layoutX="319.0" layoutY="197.0" mnemonicParsing="false" onMousePressed="#backBtnAction" prefHeight="53.0" prefWidth="99.0" text="Back">
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>

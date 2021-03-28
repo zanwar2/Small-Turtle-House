@@ -53,8 +53,6 @@ public class NamesController {
         wrapper.setLast_name(lastName);
         wrapper.saveChanges();
 
-        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/patient/homescreen.fxml"));
-        Main.getPrimaryStage().setTitle("Home Screen");
-        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+        Main.setHomeScreen(false);
     }
 }
