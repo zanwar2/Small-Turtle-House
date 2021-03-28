@@ -23,12 +23,8 @@ public class PatientHomeController {
     @FXML
     private ImageView image;
 
-    //Accessing the currently logged in username to display as confirmation that the user is on the correct account -matthew
-    private PatientWrapper wrapper = (PatientWrapper) Main.getUserWrapper();
-    private String loggedInUser = wrapper.getUsername();
-
     //function for setting the text as the proper username when the class instance is created -matthew
-    public void showUser() {
+    public void showUser(String loggedInUser) {
         //sets text -matthew
         currentUserTxt.setText(loggedInUser);
     }

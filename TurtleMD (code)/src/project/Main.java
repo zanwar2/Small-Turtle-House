@@ -67,15 +67,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         Main.stage = primaryStage;
-        //Read .fxml file and show it
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("applications/resources/fxml/general/main.fxml"));
-        Parent root = loader.load();
-        URL imageUrl = getClass().getResource("applications/resources/images/tmd_icon.png");
-        ((MainController) loader.getController()).setImage(new Image(imageUrl.toExternalForm()));
-        stage.setTitle("Main Screen");
-        stage.setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
         stage.setResizable(false);
         stage.show();
+        //Read .fxml file and show it
+        Main.setMainScreen();
     }
 
     @Override
@@ -125,10 +120,16 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource(path));
         Parent root = loader.load();
         URL imageUrl = Main.class.getResource("applications/resources/images/tmd_icon.png");
-        if(staff)
-            ((StaffHomeController) loader.getController()).setImage(new Image(imageUrl.toExternalForm()));
-        else
-            ((PatientHomeController) loader.getController()).setImage(new Image(imageUrl.toExternalForm()));
+        if(staff) {
+            StaffHomeController controller = loader.getController();
+            controller.setImage(new Image(imageUrl.toExternalForm()));
+            controller.showUser(Main.getUserWrapper().getUsername());
+        }
+        else {
+            PatientHomeController controller = loader.getController();
+            controller.setImage(new Image(imageUrl.toExternalForm()));
+            controller.showUser(Main.getUserWrapper().getUsername());
+        }
         stage.setTitle("Home Screen");
         stage.setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
     }
@@ -173,5 +174,14 @@ public class Main extends Application {
         patientController.pageSetup();
         Main.getPrimaryStage().setTitle("Next Patient Screen");
         Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(400), root.prefHeight(600)));
+    }
+
+    public static void setMainScreen() throws IOException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/general/main.fxml"));
+        Parent root = loader.load();
+        URL imageUrl = Main.class.getResource("applications/resources/images/tmd_icon.png");
+        ((MainController) loader.getController()).setImage(new Image(imageUrl.toExternalForm()));
+        Main.getPrimaryStage().setTitle("Main Screen");
+        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
     }
 }

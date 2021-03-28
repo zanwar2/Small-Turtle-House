@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import project.Main;
 import project.Utils.objects.Wrappers.PatientWrapper;
 import project.Utils.objects.Wrappers.StaffWrapper;
+import project.Utils.objects.Wrappers.UserWrapper;
 import project.applications.controllers.patient.SchedulingController;
 
 import java.io.IOException;
@@ -25,13 +26,8 @@ public class StaffHomeController {
     @FXML
     private ImageView image;
 
-    //Accessing the currently logged in username to display as confirmation that the user is on the correct account -matthew
-    private StaffWrapper wrapper = (StaffWrapper) Main.getUserWrapper();
-    private String loggedInUser = wrapper.getUsername();
-
     //function for setting the text as the proper username when the class instance is created -matthew
-    public void showUser()
-    {
+    public void showUser(String loggedInUser) {
         //sets text -matthew
         currentUserTxt.setText(loggedInUser);
     }
