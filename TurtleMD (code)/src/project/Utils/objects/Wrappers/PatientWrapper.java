@@ -1,6 +1,7 @@
 package project.Utils.objects.Wrappers;
 
 import project.Main;
+import project.Utils.objects.QuestionnaireHandler;
 import project.Utils.storage.Queries;
 
 import java.sql.*;
@@ -66,4 +67,16 @@ public class PatientWrapper extends UserWrapper {
         this.next_appointment = next_appointment;
     }
 
+    public QuestionnaireHandler getQuestionnaire() throws SQLException {
+        PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.GET_QUESTIONNAIRE);
+        stmt.setInt(1, this.patient_id); //or whatever this method is
+        ResultSet rS = stmt.executeQuery();
+        rS.next();
+        QuestionnaireHandler questionnaire = new QuestionnaireHandler(rS.getInt(1), rS.getInt(2),
+                rS.getBoolean(3), rS.getBoolean(4), rS.getBoolean(5), rS.getBoolean(6), rS.getBoolean(7),
+                rS.getBoolean(8), rS.getBoolean(9), rS.getBoolean(10), rS.getBoolean(11));
+        stmt.close();
+
+        return questionnaire;
+    }
 }

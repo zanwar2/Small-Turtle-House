@@ -52,6 +52,20 @@ public class QuestionnaireHandler {
 
     }
 
+    public QuestionnaireHandler(Integer patient_id, int temp, boolean headache, boolean mucus, boolean cough, boolean lymph, boolean sore, boolean nausea, boolean cold, boolean flu, boolean bronchitis) {
+        this.patient_id = patient_id;
+        this.temp = temp;
+        this.headache = headache;
+        this.mucus = mucus;
+        this.cough = cough;
+        this.lymph = lymph;
+        this.sore = sore;
+        this.nausea = nausea;
+        this.cold = cold;
+        this.flu = flu;
+        this.bronchitis = bronchitis;
+    }
+
     public boolean[] diagnosis(){
         //implement diagnosis thingy
         return new boolean[]{false, false, false};
@@ -76,4 +90,45 @@ public class QuestionnaireHandler {
 
         stmt.close();
     }
+
+    public int getTemp() {
+        return temp;
+    }
+
+    public boolean getHeadahe() {
+        return headache;
+    }
+
+    public boolean getCough() {
+        return cough;
+    }
+
+    public boolean getMucus() {
+        return mucus;
+    }
+
+    public boolean getLymph() {
+        return lymph;
+    }
+
+    public boolean getSore() {
+        return sore;
+    }
+
+    public boolean getNausea() {
+        return nausea;
+    }
+
+    public boolean getCold() {
+        return cold;
+    }
+
+    public boolean getFlu() {
+        return flu;
+    }
+
+    public boolean getBronchitis() {
+        return bronchitis;
+    }
+
 }

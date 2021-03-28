@@ -66,6 +66,8 @@ public class Queries {
 
     public static String GET_LAST_PATIENT_ID = "SELECT * FROM pre_app_quest ORDER BY patient_id DESC LIMIT 1;";
 
+    public static String GET_QUESTIONNAIRE = "SELECT * FROM pre_app_quest WHERE patient_id = ?;";
+
     public static String SAVE_QUESTIONNAIRE = "REPLACE INTO pre_app_quest (patient_id, rounded_temp, headaches, coughing, mucus, swollen_lymphnodes, soreness, nausea, common_cold, flu, bronchitis) VALUES(?,?,?,?,?,?,?,?,?,?,?);";
 
     public static String GET_DAY = "SELECT * FROM master_schedule WHERE day = ?;";

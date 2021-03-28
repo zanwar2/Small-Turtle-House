@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import project.Utils.objects.Wrappers.PatientWrapper;
 import project.Utils.objects.Wrappers.StaffWrapper;
@@ -15,6 +16,7 @@ import project.Utils.objects.UsernameHandler;
 import project.applications.controllers.general.MainController;
 import project.applications.controllers.patient.NextAppointmentController;
 import project.applications.controllers.patient.PatientHomeController;
+import project.applications.controllers.staff.NextPatientController;
 import project.applications.controllers.staff.StaffHomeController;
 
 import java.io.IOException;
@@ -147,5 +149,18 @@ public class Main extends Application {
         }
         Main.getPrimaryStage().setTitle("Next Appointment Screen");
         Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+    }
+
+    //Loads the nextpatient page and transfers the first patient into the NextPatientController class - Tyler
+    public static void nextPatientScreen() throws IOException, SQLException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/staff/nextpatient.fxml"));
+        Parent root = loader.load();
+        NextPatientController patientController = loader.getController();
+        StaffWrapper wrapper = (StaffWrapper) Main.getUserWrapper();
+        PatientWrapper patient = wrapper.getNextPatient();
+        patientController.setPatient(patient);
+        patientController.pageSetup();
+        Main.getPrimaryStage().setTitle("Next Patient Screen");
+        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(400), root.prefHeight(600)));
     }
 }
