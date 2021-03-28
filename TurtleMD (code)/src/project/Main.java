@@ -18,6 +18,7 @@ import project.applications.controllers.patient.NextAppointmentController;
 import project.applications.controllers.patient.PatientHomeController;
 import project.applications.controllers.staff.NextPatientController;
 import project.applications.controllers.staff.StaffHomeController;
+import project.applications.controllers.staff.viewDateController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -130,6 +131,16 @@ public class Main extends Application {
             ((PatientHomeController) loader.getController()).setImage(new Image(imageUrl.toExternalForm()));
         stage.setTitle("Home Screen");
         stage.setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
+    }
+
+
+    public static void setViewDateScreen() throws IOException{
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/staff/viewDate.fxml"));
+        Parent root = loader.load();
+        viewDateController schedulingController = loader.getController();
+        schedulingController.setDate();
+        Main.getPrimaryStage().setTitle("View Schedule Screen");
+        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
     }
 
     public static void setNextAppointmentScreen() throws IOException {

@@ -75,5 +75,8 @@ public class Queries {
     public static String SAVE_DAY = "REPLACE INTO master_schedule (day, 9AM_available, 10AM_available, 11AM_available, 12PM_available, 1PM_available, 2PM_available, 3PM_available, 4PM_available, 5PM_available) VALUES(?,?,?,?,?,?,?,?,?,?);";
 
     public static String GET_NEXT_APPOINTMENT = "SELECT * FROM user_data WHERE next_appointment IS NOT NULL ORDER BY next_appointment LIMIT 1;";
+
+    public static String GET_PATIENT_BY_TIME = "SELECT * FROM user_data WHERE next_appointment = ?;";
+
 }
 
