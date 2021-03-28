@@ -21,8 +21,7 @@ public class Queries {
             "last_name VARCHAR(32)," +
             "first_name VARCHAR(32)," +
             "next_appointment TIMESTAMP," +
-            "patient_id INTEGER," +
-            "FOREIGN KEY(patient_id) REFERENCES pre_app_quest(patient_id) ON DELETE SET NULL );";
+            "patient_id INTEGER );";
 
     public static String CREATE_STAFF_TABLE = "CREATE TABLE IF NOT EXISTS staff_data (" +
             "username VARCHAR(64) PRIMARY KEY," +
