@@ -28,6 +28,7 @@ public class SignupController {
     @FXML
     private Label usernameLabel;
 
+    
     public void signupAction(MouseEvent event) throws IOException {
         String username = userTxt.getText();
         if(username.length() > 64){

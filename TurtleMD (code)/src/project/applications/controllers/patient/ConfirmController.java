@@ -17,10 +17,15 @@ public class ConfirmController {
     private Timestamp next_appointment;
     private ScheduleHandler scheduler;
 
+
+    //Function that hides the confirm screen and returns to the questionnaire screen when the no button is clicked
     public void noBtnAction(MouseEvent event) {
         (((Node) event.getSource()).getScene().getWindow()).hide();
     }
 
+    //Function that saves the questionnaire and appointment of the current user when the yes button is clicked
+    //The function uses the getUserWrapper method from main to find the specific user and saves the changes to the
+    // the specifc user.
     public void yesBtnAction(MouseEvent event) throws SQLException, IOException {
         PatientWrapper wrapper =  (PatientWrapper) Main.getUserWrapper();
         wrapper.setNext_appointment(next_appointment);
