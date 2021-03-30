@@ -29,8 +29,10 @@ public class PatientHomeController {
         currentUserTxt.setText(loggedInUser);
     }
 
-    public void editProfileAction(MouseEvent event) {
-
+    public void editProfileAction(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/patient/editprofile.fxml"));
+        Main.getPrimaryStage().setTitle("Edit Profile Screen");
+        Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
     }
 
 
