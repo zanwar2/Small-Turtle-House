@@ -16,12 +16,14 @@ import javafx.scene.control.TextField;
 import project.Utils.objects.QuestionnaireHandler;
 import project.Utils.objects.ScheduleHandler;
 
+/* QuestionnaireController interacts with elements from the Questionnaire.fxml file */
 public class QuestionnaireController {
 
     private QuestionnaireHandler questionnaire;
     private Timestamp appointment;
     private ScheduleHandler scheduler;
 
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     private TextField temperature;
   
@@ -46,7 +48,10 @@ public class QuestionnaireController {
     @FXML
     private Label fail;
 
-    //Function that reads the checkboxes for the symptoms provided in the questionnaire
+    /*
+        QuestionnaireChecker() returns whether or not the answers submitted
+        are valid and creates a QuestionnaireHandler() if so.
+    */
     private boolean QuestionnaireChecker()
     {
         int temp;
@@ -86,6 +91,7 @@ public class QuestionnaireController {
         stage.show();
     }
 
+    /* setData() takes the data from the previous screen. */
     public void setData(Timestamp appointment, ScheduleHandler scheduler) {
         this.appointment = appointment;
         this.scheduler = scheduler;

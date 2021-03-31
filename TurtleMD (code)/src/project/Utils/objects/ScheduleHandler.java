@@ -5,6 +5,9 @@ import project.Utils.storage.Queries;
 
 import java.sql.*;
 
+/*
+    This handler handles the Schedule to and from the database.
+ */
 public class ScheduleHandler {
 
     private Connection con;
@@ -20,6 +23,7 @@ public class ScheduleHandler {
     private Boolean fourPM = true;
     private Boolean fivePM = true;
 
+    /* Constructors based on information given */
     public ScheduleHandler(Date date) {
         this.date = date;
         con = Main.getDatabaseManager().getConnection();
@@ -41,6 +45,7 @@ public class ScheduleHandler {
         } catch (SQLException e){}
     }
 
+    /* saveChanges() saves the current information to the database */
     public void saveChanges() throws SQLException {
         PreparedStatement stmt = con.prepareStatement(Queries.SAVE_DAY);
         stmt.setDate(1, date);

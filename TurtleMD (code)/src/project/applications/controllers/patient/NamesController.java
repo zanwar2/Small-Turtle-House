@@ -12,7 +12,9 @@ import project.Utils.objects.Wrappers.PatientWrapper;
 
 import java.io.IOException;
 
+/* NamesController interacts with elements from the namescreen.fxml file */
 public class NamesController {
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     private TextField firstTxt;
 
@@ -24,7 +26,6 @@ public class NamesController {
 
     @FXML
     private Label nameLabel;
-
 
     //Function where user can submit a signup account
     //Conditions include first and last name where an error is shown if the user sets them too long or left blank
