@@ -76,6 +76,7 @@ public class PatientWrapper extends UserWrapper {
         this.next_appointment = next_appointment;
     }
 
+    //This sends a request to the database to get all the Questionnaire answers that the selected patient inputed.
     public QuestionnaireHandler getQuestionnaire() throws SQLException {
         PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.GET_QUESTIONNAIRE);
         stmt.setInt(1, this.patient_id);

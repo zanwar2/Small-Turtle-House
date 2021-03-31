@@ -20,7 +20,7 @@ import java.sql.SQLException;
 
 public class NextPatientController {
 
-    //FXML Stuff - Tyler
+    //FXML Stuff
     @FXML
     private Text patientNameNPC;
     @FXML
@@ -34,28 +34,28 @@ public class NextPatientController {
     @FXML
     private Button confirmBtnNPC;
 
-    //Private Instances - Tyler
+    //Private Instances
     private PatientWrapper nextPatient;
     private StaffWrapper staff = (StaffWrapper) Main.getUserWrapper();
 
-    //Sets the next patient - Tyler
+    //Sets the next patient
     public void setPatient(PatientWrapper patient) {
         this.nextPatient = patient;
     }
 
-    //Sets the time into infoFieldNPC - Tyler
+    //Sets the time into infoFieldNPC
     public void setInfo(String text) {
         infoFieldNPC.setText(text);
     }
 
-    //Gets the cancel button... don't know if it is in use anymore - Tyler
+    //Gets the cancel button... don't know if it is in use anymore
     public Button getCancelBtn()
     {
         return cancelBtnNPC;
     }
 
     //Gets the initial starting page which sets the name and time of the next patient and does some
-    //visibility with some buttons - Tyler
+    //visibility with some buttons
     public void pageSetup() {
         cancelBtnNPC.setVisible(true);
         confirmBtnNPC.setVisible(false);
@@ -63,13 +63,13 @@ public class NextPatientController {
         setInfo(nextPatient.getNext_appointment().toString());
     }
 
-    //Returns back to the staff home screen - Tyler
+    //Returns back to the staff home screen
     public void backBtnAction(MouseEvent mouseEvent) throws IOException {
         Main.setHomeScreen(true);
     }
 
     //Makes the current patient's appointment null, does some visibility stuff to show that you have cancelled
-    //and makes sure you know that you have cancelled that patient's appointment - Tyler
+    //and makes sure you know that you have cancelled that patient's appointment
     public void cancelBtnAction(MouseEvent mouseEvent) throws SQLException {
         PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.REMOVE_FROM_MASTER_SCHEDULE);
         stmt.setDate(1, new Date(nextPatient.getNext_appointment().getTime()));
@@ -83,7 +83,7 @@ public class NextPatientController {
         confirmBtnNPC.setVisible(true);
     }
 
-    //Gets the next patient according to time, and resets up the page - Tyler
+    //Gets the next patient according to time, and resets up the page
     public void confirmBtnAction(MouseEvent mouseEvent) throws SQLException {
         setPatient(staff.getNextPatient());
         patientInfoNPC.setVisible(true);
