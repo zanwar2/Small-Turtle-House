@@ -27,7 +27,8 @@ public class NamesController {
     @FXML
     private Label nameLabel;
 
-    /* submitAction() listens for submitBtn to be clicked. Attempts to submit information */
+    //Function where user can submit a signup account
+    //Conditions include first and last name where an error is shown if the user sets them too long or left blank
     public void submitAction(MouseEvent event) throws IOException {
         String firstName = firstTxt.getText();
         if (firstName.length() > 32) {

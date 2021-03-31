@@ -48,7 +48,6 @@ public class QuestionnaireController {
     @FXML
     private Label fail;
 
-
     /*
         QuestionnaireChecker() returns whether or not the answers submitted
         are valid and creates a QuestionnaireHandler() if so.
@@ -74,7 +73,8 @@ public class QuestionnaireController {
         return true;
     }
 
-    /* submitBtnAction() listens for submitBtn to be clicked. Attempts to submit inputs. */
+    //Function for the submit button to work
+    //Additionally the submit button will also work where an error is contained if the user doesn't input value in temperatures
     public void submitBtnAction (MouseEvent event) throws IOException
     {
         if(!QuestionnaireChecker()){
