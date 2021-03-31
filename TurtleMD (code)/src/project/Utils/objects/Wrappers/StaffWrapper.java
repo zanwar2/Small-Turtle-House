@@ -38,6 +38,8 @@ public class StaffWrapper extends UserWrapper {
         Main.getUsernameHandler().reloadStaffUsers();
     }
 
+    //This method sends a request to the database to get the information of all the patients ordered by the closest
+    //patient next to be checked on.
     public PatientWrapper getNextPatient() throws SQLException {
         PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.GET_NEXT_APPOINTMENT);
         ResultSet rS = stmt.executeQuery();

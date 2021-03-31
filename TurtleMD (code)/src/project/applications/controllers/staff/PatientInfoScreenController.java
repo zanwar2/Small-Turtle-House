@@ -75,7 +75,7 @@ public class PatientInfoScreenController {
         bronchitis.setText(String.format("%18s %s", "Bronchitis", yesOrNo(questionnaire.getBronchitis())));
 
     }
-
+    //Prints out "yes" or "no" depending on what boolean was inserted.
     private String yesOrNo(boolean temp) {
         if(temp)
             return "yes";
