@@ -14,12 +14,14 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+/* TimeSelectionController interacts with elements from the TimeSelection.fxml file */
 public class TimeSelectionController
 {
     private Date date;
     private Timestamp appointment;
     private ScheduleHandler scheduler;
 
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     Button nineTenBtn;
 
@@ -51,6 +53,10 @@ public class TimeSelectionController
         this.date = date;
     }
 
+    /*
+        timeSelectionAction() listens for timeSelectionBtn to be clicked.
+        Sets the time and removes the availability of the timeslot
+    */
     public void timeSelectionAction(MouseEvent event) throws IOException {
         long timeMS = Constants.HOUR;
         String id = ((Button) event.getSource()).getId();
@@ -105,10 +111,12 @@ public class TimeSelectionController
 
     }
 
+    /* cancelAction() listens for cancelBtn to be clicked. Goes back to the previous screen. */
     public void cancelAction(MouseEvent event) throws IOException {
         Main.setNextAppointmentScreen();
     }
 
+    /* Disables buttons with unavailable timeslots. */
     public void disableButtons(ScheduleHandler scheduler) {
         this.scheduler = scheduler;
         if(!scheduler.getNineAM())

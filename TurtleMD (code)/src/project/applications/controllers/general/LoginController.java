@@ -14,13 +14,10 @@ import project.Utils.objects.Wrappers.StaffWrapper;
 import java.io.IOException;
 import java.sql.*;
 
-
+/* LoginController interacts with elements from the loginscreen.fxml file */
 public class LoginController {
 
-    //Controller classes will connect to the .fxml file and provide methods for the events to implement
-
-
-    //@FXML allows you to register fields directly from .fxml file
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     private TextField userTxt;
 
@@ -33,6 +30,7 @@ public class LoginController {
     @FXML
     private Label usernameLabel;
 
+    /* staffLoginAction() listens for staffLoginBtn to be clicked. Attempts a login for a staff */
     public void staffLoginAction(MouseEvent event) throws IOException {
 
         //Set username to the username input
@@ -92,6 +90,7 @@ public class LoginController {
 
 
 
+    /* loginAction() listens for loginBtn to be clicked. Attempts a login for a patient */
     public void loginAction(MouseEvent event) throws IOException{
         //Set username to the username input
         String username = this.userTxt.getText();
@@ -148,6 +147,7 @@ public class LoginController {
         Main.setHomeScreen(false);
     }
 
+    /* backBtnAction() listens for backBtn to be clicked */
     public void backBtnAction(MouseEvent mouseEvent) throws IOException {
         Main.setMainScreen();
     }

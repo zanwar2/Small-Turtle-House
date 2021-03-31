@@ -13,8 +13,10 @@ import project.Utils.objects.Wrappers.PatientWrapper;
 
 import java.io.IOException;
 
+/* EditProfileController interacts with elements from the EditProfile.fxml file */
 public class EditProfileController
 {
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     private TextField userTxt;
 

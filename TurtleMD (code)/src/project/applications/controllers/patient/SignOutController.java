@@ -8,6 +8,7 @@ import project.Utils.objects.Wrappers.PatientWrapper;
 
 import java.io.IOException;
 
+/* SignOutController interacts with elements from the SignOut.fxml file */
 public class SignOutController {
 
     //Function that saves changes made to the specific patient using main methods and signs the user out
