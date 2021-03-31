@@ -46,6 +46,7 @@ public class QuestionnaireController {
     @FXML
     private Label fail;
 
+    //Function that reads the checkboxes for the symptoms provided in the questionnaire
     private boolean QuestionnaireChecker()
     {
         int temp;
@@ -67,6 +68,8 @@ public class QuestionnaireController {
         return true;
     }
 
+    //Function for the submit button to work
+    //Additionally the submit button will also work where an error is contained if the user doesn't input value in temperatures
     public void submitBtnAction (MouseEvent event) throws IOException
     {
         if(!QuestionnaireChecker()){
