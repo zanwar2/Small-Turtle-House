@@ -37,6 +37,9 @@ public class ConfirmController {
         Main.setHomeScreen(false);
     }
 
+    /*Used in the questionnaire controller to set the data of a specific patient before coming to the confirm screen.
+      The data is only saved if the yes button is clicked. Otherwise, the data is updated if any changes are made.
+     */
     public void setData(QuestionnaireHandler questionnaire, Timestamp next_appointment, ScheduleHandler scheduler) {
         this.questionnaire = questionnaire;
         this.next_appointment = next_appointment;

@@ -36,9 +36,7 @@ public class EditProfileController
     private Label reasonLabel;
 
 
-    /*
-    Checks all textboxes in the screen to
-     */
+    /* submitAction() listens for the submitBtn to be clicked. Attempts to submit inputs. */
     public void submitAction(MouseEvent mouseEvent) throws IOException {
 
         PatientWrapper wrapper = (PatientWrapper) Main.getUserWrapper();
