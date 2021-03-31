@@ -89,7 +89,8 @@ public class NextPatientController {
         patientInfoNPC.setVisible(true);
         pageSetup();
     }
-
+    //Function displays the patient info screen and sets the patient using the set patient method from the patientinfo
+    //Controller.
     public void patientInfoAction(MouseEvent mouseEvent) throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/staff/patientinfoscreen.fxml"));
         Parent root = loader.load();

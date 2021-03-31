@@ -53,11 +53,11 @@ public class PatientInfoScreenController {
     public void setQuestionnaire() throws SQLException {
         this.questionnaire = patient.getQuestionnaire();
     }
-
+    //returns the GUI back to the staff homescreen using the setHomeScreen method from Main.
     public void backBtnAction(MouseEvent event) throws IOException, SQLException {
         Main.setHomeScreen(true);
     }
-
+    //Sets up the page for the patient info after retrieving related data from a specific patient user.
     public void pageSetup() throws SQLException {
         setQuestionnaire();
         patientName.setText(String.format("%s, %s", patient.getLast_name(), patient.getFirst_name()));
