@@ -42,6 +42,7 @@ public class Main extends Application {
 
     private static UserWrapper userWrapper = null;
 
+    /* javafx initialization method overwritten. performs all setup */
     @Override
     public void init() throws Exception {
         super.init();
@@ -72,6 +73,7 @@ public class Main extends Application {
 
     }
 
+    /* javafx start method overwritten */
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -82,12 +84,14 @@ public class Main extends Application {
         Main.setMainScreen();
     }
 
+    /* javafx stop method overwritten. closes database connection securely */
     @Override
     public void stop() throws Exception {
         super.stop();
         databaseManager.close();
     }
 
+    /* run method */
     public static void main(String[] args) {
         launch(args);
     }
@@ -112,18 +116,21 @@ public class Main extends Application {
         return stage;
     }
 
+    /* creates a table given a query and a connection */
     private void createTable(String table, Connection con) throws SQLException {
         PreparedStatement stmt = con.prepareStatement(table);
         stmt.execute();
         stmt.close();
     }
 
+    /* creates all tables in our database given a list of queries and a connection */
     private void createTables(List<String> tables, Connection con) throws SQLException {
         for(String query : tables){
             createTable(query, con);
         }
     }
 
+    /* sets the home screen. avoids repeat code */
     public static void setHomeScreen(boolean staff) throws IOException {
         String path = staff ? "applications/resources/fxml/staff/homescreen.fxml" : "applications/resources/fxml/patient/homescreen.fxml";
         FXMLLoader loader = new FXMLLoader(Main.class.getResource(path));
@@ -144,6 +151,7 @@ public class Main extends Application {
     }
 
 
+    /* sets the view date screen. avoids repeat code */
     public static void setViewDateScreen() throws IOException{
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/staff/viewDate.fxml"));
         Parent root = loader.load();
@@ -153,6 +161,7 @@ public class Main extends Application {
         Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
     }
 
+    /* sets the next appointment screen. avoids repeat code */
     public static void setNextAppointmentScreen() throws IOException {
         PatientWrapper user = (PatientWrapper) Main.getUserWrapper();
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/patient/NextAppointment.fxml"));
@@ -172,7 +181,7 @@ public class Main extends Application {
         Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
     }
 
-    //Loads the nextpatient page and transfers the first patient into the NextPatientController class - Tyler
+    //Loads the nextpatient page and transfers the first patient into the NextPatientController class
     public static void nextPatientScreen() throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/staff/nextpatient.fxml"));
         Parent root = loader.load();
@@ -185,6 +194,7 @@ public class Main extends Application {
         Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(400), root.prefHeight(600)));
     }
 
+    /* sets the main screen. avoids repeat code */
     public static void setMainScreen() throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/general/main.fxml"));
         Parent root = loader.load();

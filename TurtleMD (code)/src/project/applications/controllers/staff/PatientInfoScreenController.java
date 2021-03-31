@@ -12,8 +12,10 @@ import project.Utils.objects.Wrappers.PatientWrapper;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/* PatientInfoScreenController interacts with elements from the patientinfoscreen.fxml file */
 public class PatientInfoScreenController {
 
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     private Text patientName;
     @FXML

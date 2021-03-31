@@ -13,8 +13,10 @@ import project.Utils.objects.Wrappers.StaffWrapper;
 
 import java.io.IOException;
 
+/* EditProfileController interacts with elements from the editprofile.fxml file */
 public class EditProfileController {
 
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     private TextField userTxt;
 
@@ -34,6 +36,7 @@ public class EditProfileController {
     private Label reasonLabel;
 
 
+    /* submitAction() listens for the submitBtn to be clicked. Attempts to submit inputs. */
     public void submitAction(MouseEvent mouseEvent) throws IOException {
 
         StaffWrapper wrapper = (StaffWrapper) Main.getUserWrapper();

@@ -11,9 +11,10 @@ import project.Utils.objects.Wrappers.UserWrapper;
 
 import java.io.IOException;
 
-//for creating new staff
+/*CreateController interacts with elements from the CreateNewStaff.fxml file */
 public class CreateController {
-    //Fields assigned to objects in fmxl
+
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     private TextField fnameTxt;
 

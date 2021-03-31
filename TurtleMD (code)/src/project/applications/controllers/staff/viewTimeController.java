@@ -15,11 +15,13 @@ import project.Utils.storage.Queries;
 import java.io.IOException;
 import java.sql.*;
 
+/* viewTimeController interacts with elements from the ViewTime.fxml file */
 public class viewTimeController {
     private Date date;
     private Timestamp appointment;
     private ScheduleHandler scheduler;
 
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     Button nineTenBtn;
 
@@ -51,6 +53,7 @@ public class viewTimeController {
         this.date = date;
     }
 
+    /* timeSelectionAction() listens for timeSelectionBtn to be clicked. Proceeds to patient info screen */
     public void timeSelectionAction(MouseEvent event) throws IOException, SQLException {
         long timeMS = Constants.HOUR;
         String id = ((Button) event.getSource()).getId();
@@ -114,10 +117,12 @@ public class viewTimeController {
 
     }
 
+    /* returnAction() listens for returnBtn to be clicked. Goes back to previous screen. */
     public void returnAction(MouseEvent event) throws IOException {
         Main.setViewDateScreen();
     }
 
+    /* disables buttons without an appointment set */
     public void disableButtons(ScheduleHandler scheduler) {
         this.scheduler = scheduler;
         if(scheduler.getNineAM())

@@ -18,7 +18,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/* viewDateController interacts with elements from the ViewDate.fxml file */
 public class viewDateController {
+
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     private Button day1;
 
@@ -47,10 +50,12 @@ public class viewDateController {
     private List<Date> times;
 
 
+    /* BackAction() listens for BackBtn to be clicked. Goes to previous screen. */
     public void BackAction(MouseEvent mouseEvent) throws IOException {
         Main.setHomeScreen(true);
     }
 
+    /* setDate() sets the dates on the buttons. */
     public void setDate() {
         btns = new ArrayList<>(Arrays.asList(day1,day2,day3,day4,day5,day6,day7));
         times = new ArrayList<>();
@@ -67,6 +72,7 @@ public class viewDateController {
         }
     }
 
+    /* dateAction() listens for any date button to be clicked. Proceeds to Scheduling screen */
     public void DateAction(MouseEvent event) throws IOException {
         Button find = (Button) event.getSource();
         Date appointment = times.get(btns.indexOf(find));

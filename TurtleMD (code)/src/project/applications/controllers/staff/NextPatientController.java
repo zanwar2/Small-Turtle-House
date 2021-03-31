@@ -18,9 +18,10 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/* NextPatientController interacts with elements from the nextpatient.fxml file */
 public class NextPatientController {
 
-    //FXML Stuff
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     private Text patientNameNPC;
     @FXML

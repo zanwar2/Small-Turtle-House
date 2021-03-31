@@ -8,6 +8,7 @@ import project.Utils.objects.Wrappers.StaffWrapper;
 
 import java.io.IOException;
 
+/* SignOutController interacts with elements from the staff/signout.fxml file */
 public class SignOutController {
 
     //Saves any necessary changes to the staff members related data then sends the user back to the main login screen
