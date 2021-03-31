@@ -10,10 +10,13 @@ import java.sql.SQLException;
 
 public class StaffWrapper extends UserWrapper {
 
-    //This is a Wrapper class to handle the logged in Staff Member
-    //Any changes made here will be saved using saveChanges() when the user logs out
-    //Will also either save the username/password changes whenever made, or force the user to log back in after
+    /*
+        This is a Wrapper class to handle any Staff Members from
+        the database, or to put into the database.
+    */
 
+
+    /* Two Constructors based on information we have/need. */
     public StaffWrapper(String username, String password){
         super(username,password,null,null);
     }
@@ -22,6 +25,7 @@ public class StaffWrapper extends UserWrapper {
         super(username,password,last_name,first_name);
     }
 
+    /* saveChanges() saves the current information to the database */
     public void saveChanges(){
         try{
             Connection con = Main.getDatabaseManager().getConnection();
@@ -38,6 +42,10 @@ public class StaffWrapper extends UserWrapper {
         Main.getUsernameHandler().reloadStaffUsers();
     }
 
+    /*
+        getNextPatient() gets the information of the patient with
+        the next appointment.
+     */
     public PatientWrapper getNextPatient() throws SQLException {
         PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.GET_NEXT_APPOINTMENT);
         ResultSet rS = stmt.executeQuery();

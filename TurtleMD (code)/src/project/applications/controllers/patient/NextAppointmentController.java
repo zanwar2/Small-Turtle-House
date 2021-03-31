@@ -16,13 +16,12 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/* NextAppointmentController interacts with elements from the NextAppointment.fxml file */
 public class NextAppointmentController
 {
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     private Label infoField;
-
-    @FXML
-    private Button backBtn;
 
     @FXML
     private Button optionBtn;
@@ -45,6 +44,7 @@ public class NextAppointmentController
         return cancelBtn;
     }
 
+    /* cancelBtnAction() listens for cancelBtn to be clicked. Cancels the appointment. */
     public void cancelBtnAction(MouseEvent mouseEvent) throws SQLException {
         PatientWrapper user = (PatientWrapper) Main.getUserWrapper();
         PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.REMOVE_FROM_MASTER_SCHEDULE);
@@ -57,11 +57,13 @@ public class NextAppointmentController
 
     }
 
+    /* backBtnAction() listens for backBtn to be clicked. Goes back a page */
     public void backBtnAction(MouseEvent mouseEvent) throws IOException {
         Main.setHomeScreen(false);
     }
 
 
+    /* optionBtnAction() listens for optionBtn to be clicked. Proceeds to scheduling page*/
     public void optionBtnAction(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("applications/resources/fxml/patient/Scheduling.fxml"));
         Parent root = loader.load();

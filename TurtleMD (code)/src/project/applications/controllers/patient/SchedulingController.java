@@ -16,11 +16,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/* SchedulingController interacts with elements from the Scheduling.fxml file */
 public class SchedulingController
 {
     private List<Button> button;
     private List<Date> times;
 
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     private Button Mon;
 
@@ -42,6 +44,7 @@ public class SchedulingController
     @FXML
     private Button Sun;
 
+    /* setDates() sets dates on the buttons */
     public void setDates() {
         button = new ArrayList<>(Arrays.asList(Mon,Tue,Wed,Thur,Fri,Sat,Sun));
         times = new ArrayList<>();
@@ -58,10 +61,12 @@ public class SchedulingController
         }
     }
 
+    /* BackAction() listens for BackBtn to be clicked. Goes to previous screen. */
     public void BackAction(MouseEvent event) throws IOException {
         Main.setNextAppointmentScreen();
     }
 
+    /* DateAction() listens for any date button to be clicked. Sets the date and proceeds to time selection. */
     public void DateAction(MouseEvent event) throws IOException {
         Button find = (Button) event.getSource();
         Date appointment = times.get(button.indexOf(find));

@@ -8,6 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/*
+    This handler handles questionnaires to and from the database.
+ */
 public class QuestionnaireHandler {
 
     private Integer patient_id;
@@ -22,6 +25,7 @@ public class QuestionnaireHandler {
     private boolean flu;
     private boolean bronchitis;
 
+    /* Constructors based on information given */
     public QuestionnaireHandler(int temp, boolean headache, boolean cough, boolean mucus, boolean lymph, boolean sore, boolean nausea){
         this.temp = temp;
         this.headache = headache;
@@ -38,6 +42,7 @@ public class QuestionnaireHandler {
 
         PatientWrapper wrapper = (PatientWrapper) Main.getUserWrapper();
         this.patient_id = wrapper.getPatient_id();
+        //assigns a patient id if one is not already given
         if(patient_id == null) {
             try {
                 PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.GET_LAST_PATIENT_ID);
@@ -67,11 +72,13 @@ public class QuestionnaireHandler {
         this.bronchitis = bronchitis;
     }
 
+    /* Unimplemented as of right now, as a diagnosis is a stretch feature */
     public boolean[] diagnosis(){
         //implement diagnosis thingy
         return new boolean[]{false, false, false};
     }
 
+    /* saveChanges() saves the current information to the database */
     public void saveChanges() throws SQLException {
         PreparedStatement stmt = Main.getDatabaseManager().getConnection().prepareStatement(Queries.SAVE_QUESTIONNAIRE);
 

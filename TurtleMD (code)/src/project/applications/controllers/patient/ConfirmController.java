@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
+/* ConfirmController interacts with elements from the Confirm.fxml file */
 public class ConfirmController {
 
     private QuestionnaireHandler questionnaire;

@@ -15,8 +15,10 @@ import project.Utils.objects.Wrappers.PatientWrapper;
 
 import java.io.IOException;
 
+/* PatientHomeController interacts with elements from the patient/homescreen.fxml file */
 public class PatientHomeController {
 
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     private Text currentUserTxt;
 

@@ -14,8 +14,10 @@ import project.Utils.objects.Wrappers.UserWrapper;
 
 import java.io.IOException;
 
+/* SignupController interacts with elements from the signupscreen.fxml file */
 public class SignupController {
 
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     private TextField userTxt;
 
@@ -29,6 +31,7 @@ public class SignupController {
     private Label usernameLabel;
 
 
+    /* signupAction() listens for signupBtn to be clicked. Attempts a signup. */
     public void signupAction(MouseEvent event) throws IOException {
         String username = userTxt.getText();
         if(username.length() > 64){
@@ -66,6 +69,7 @@ public class SignupController {
         Main.getPrimaryStage().setScene(new Scene(root, root.prefWidth(500), root.prefHeight(500)));
     }
 
+    /* backBtnAction() listens for BackBtn to be clicked. Goes to previous page. */
     public void backBtnAction(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(Main.class.getResource("applications/resources/fxml/general/main.fxml"));
         Main.getPrimaryStage().setTitle("Main Screen");

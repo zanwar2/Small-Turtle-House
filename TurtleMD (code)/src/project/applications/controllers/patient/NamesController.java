@@ -12,7 +12,9 @@ import project.Utils.objects.Wrappers.PatientWrapper;
 
 import java.io.IOException;
 
+/* NamesController interacts with elements from the namescreen.fxml file */
 public class NamesController {
+    /* @FXML allows you to register fields directly from .fxml file */
     @FXML
     private TextField firstTxt;
 
@@ -25,6 +27,7 @@ public class NamesController {
     @FXML
     private Label nameLabel;
 
+    /* submitAction() listens for submitBtn to be clicked. Attempts to submit information */
     public void submitAction(MouseEvent event) throws IOException {
         String firstName = firstTxt.getText();
         if (firstName.length() > 32) {

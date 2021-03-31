@@ -6,11 +6,18 @@ import project.Utils.storage.Queries;
 
 import java.sql.*;
 
+/*
+    This is a Wrapper class to handle any Patients from
+    the database, or to put into the database.
+*/
+
 public class PatientWrapper extends UserWrapper {
 
     private Timestamp next_appointment;
     private Integer patient_id;
 
+
+    /* Constructors based on information given */
     public PatientWrapper(String username, String password){
         super(username,password,null,null);
         this.next_appointment = null;
@@ -29,6 +36,7 @@ public class PatientWrapper extends UserWrapper {
         this.patient_id = patient_id;
     }
 
+    /* saveChanges() saves the current information to the database */
     public void saveChanges(){
         try{
             Connection con = Main.getDatabaseManager().getConnection();
